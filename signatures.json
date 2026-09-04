@@ -9,12 +9,113 @@
     ]
   },
   {
+    "slug": "acs-disabled-gdr-failure",
+    "title": "ACS Disabled. GPU Direct RDMA Failure (Vendor Err 81)",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN Got completion with error 4, vendor err 81"
+    ]
+  },
+  {
+    "slug": "activation-checkpoint-misuse",
+    "title": "Activation Checkpoint Misuse",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: checkpoint failed"
+    ]
+  },
+  {
+    "slug": "activations-checkpoint-compatibility",
+    "title": "Activation Checkpointing Compatibility",
+    "category": "Memory",
+    "severity": "low",
+    "signatures": [
+      "use_reentrant=True breaks torch.compile",
+      "Activation checkpointing doesn't work with torch.compile"
+    ]
+  },
+  {
+    "slug": "adam-epsilon-fp16-underflow-1",
+    "title": "Adam Epsilon Underflow in FP16 Mixed Precision",
+    "category": "Software",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: Function 'LogBackward' returned nan values in its ith output"
+    ]
+  },
+  {
     "slug": "adamw-grad-scaler-zero-division-error",
     "title": "ZeroDivisionError float division by zero GradScaler.step all gradients unscaled to zero or Inf",
     "category": "Training Stability",
     "severity": "medium",
     "signatures": [
       "ZeroDivisionError float division by zero GradScaler.step all gradients unscaled to zero or Inf"
+    ]
+  },
+  {
+    "slug": "another-profiling-tool-already-active",
+    "title": "ValueError: Another Profiling Tool Is Already Active",
+    "category": "Training Stability",
+    "severity": "low",
+    "signatures": [
+      "ValueError: Another profiling tool is already active",
+      "Profiler fails to start with a ValueError"
+    ]
+  },
+  {
+    "slug": "anyscale-ray-actor-cpu-gpu-deadlock",
+    "title": "Ray Actor Resource Reservation Causing GPU Starvation from Occupied CPU Slots",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "Ray Dashboard shows GPU actor in PENDING state with \"resource unavailable\" for >10 minutes"
+    ]
+  },
+  {
+    "slug": "anyscale-ray-autoscaling-resource-shape-mismatch",
+    "title": "Ray Data Auto-Scaling Failure from Resource Shape Mismatch Between Requested and Available",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "Cluster auto-scaler logs show: \"There are insufficient compute resources to run this workload\" with specific resource bundle"
+    ]
+  },
+  {
+    "slug": "apptainer-singularity-nv-binding-failures",
+    "title": "Apptainer/Singularity --nv GPU Binding Failures",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "container starts but torch.cuda.is_available() is False"
+    ]
+  },
+  {
+    "slug": "arrow-ipc-error",
+    "title": "Arrow IPC Format Error",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "OSError: Arrow error:"
+    ]
+  },
+  {
+    "slug": "audio-channel-mismatch",
+    "title": "Audio Channel Mismatch",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: channel mismatch"
+    ]
+  },
+  {
+    "slug": "augmentation-error",
+    "title": "Data Augmentation Error",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "albumentations: ValueError: image must be 3-dimensional"
     ]
   },
   {
@@ -90,6 +191,16 @@
     ]
   },
   {
+    "slug": "bitsandbytes-invalid-config-arg-deepspeed-offload",
+    "title": "bitsandbytes 'invalid configuration argument' (ops.cu) with DeepSpeed Offload",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "torch.distributed.elastic reports the worker failed with exit code 1",
+      "torch.distributed.elastic.multiprocessing.api: failed (exitcode: 1)"
+    ]
+  },
+  {
     "slug": "bitsandbytes-matmul-4bit-no-kernel-image-available",
     "title": "bitsandbytes matmul_4bit CUDA error: no kernel image is available for execution on the device",
     "category": "Environment",
@@ -108,12 +219,118 @@
     ]
   },
   {
+    "slug": "bytedance-memory-fragmentation-straggler",
+    "title": "PyTorch Caching Allocator Memory Fragmentation Causing False Straggler Slowdown",
+    "category": "Reliability",
+    "severity": "medium",
+    "signatures": [
+      "torch.cuda.memory_snapshot() shows thousands of small segments with few large contiguous blocks",
+      "torch.cuda.memory_summary() shows >30% fragmentation on affected GPUs"
+    ]
+  },
+  {
+    "slug": "cgroup-memory-limit",
+    "title": "Cgroup Memory Limit",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "Container exits with 137 (SIGKILL)",
+      "dmesg: memory cgroup out of memory: Killed process"
+    ]
+  },
+  {
+    "slug": "checkpoint-corruption",
+    "title": "Checkpoint Corruption",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: 'lengths' argument in 'EmbeddingBag' is empty after checkpoint load"
+    ]
+  },
+  {
+    "slug": "checkpoint-partial-save-1",
+    "title": "Partial Checkpoint Save",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "torch.load fails halfway through"
+    ]
+  },
+  {
+    "slug": "checkpoint-torn-write",
+    "title": "Checkpoint Torn Write",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "torch.load fails halfway through"
+    ]
+  },
+  {
+    "slug": "checkpoint-version-incompatible",
+    "title": "Checkpoint Version Incompatible",
+    "category": "Data Integrity",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: version mismatch",
+      "RuntimeError: invalid version key"
+    ]
+  },
+  {
+    "slug": "checkpoint-version-newer",
+    "title": "Checkpoint Saved with Newer Version",
+    "category": "Data Integrity",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: invalid version_key",
+      "RuntimeError: unexpected EOF, expected serialized values"
+    ]
+  },
+  {
+    "slug": "checkpoint-version-older",
+    "title": "Checkpoint Saved with Older Version",
+    "category": "Data Integrity",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: version_key not recognized"
+    ]
+  },
+  {
+    "slug": "conda-environment-conflict",
+    "title": "Conda Environment Conflict",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "ImportError: /lib/libstdc++.so.6: version `GLIBCXX'"
+    ]
+  },
+  {
     "slug": "connection-timeout",
     "title": "Connection Timeout",
     "category": "Environment",
     "severity": "medium",
     "signatures": [
       "Connection reset by peer"
+    ]
+  },
+  {
+    "slug": "container-cuda-mismatch",
+    "title": "Container CUDA Runtime Mismatch with Host Driver",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "CUDA error: system has unsupported display driver / cuda driver",
+      "CUDA error: no kernel image is available for execution on the device"
+    ]
+  },
+  {
+    "slug": "coreweave-nccl-symptom-root-cause-chain",
+    "title": "NCCL Errors as Surface Symptom for Diverse Underlying Infrastructure Root Causes",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "NCCL error messages change between failures despite same underlying hardware issue",
+      "NCCL error appears in logs but the actual failure is GPU hardware, not communication software",
+      "NCCL WARN lines with NCCL_DEBUG=INFO showing timeout, but root cause varies across runs"
     ]
   },
   {
@@ -128,6 +345,24 @@
     ]
   },
   {
+    "slug": "cpu-ram-exhaustion-during-training",
+    "title": "CPU RAM Exhaustion During Training",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "dmesg: Out of memory: Killed process"
+    ]
+  },
+  {
+    "slug": "crossentropy-all-ignore-index",
+    "title": "CrossEntropyLoss NaN on Pure Ignore-Index Batch",
+    "category": "Loss",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: unscale_() expected input to not be nan"
+    ]
+  },
+  {
     "slug": "crusoe-nixl-firmware-page-oom",
     "title": "NIXL Firmware Page Registration Fan-Out Triggers Host OOM Kills on HGX H200 and B200",
     "category": "Reliability",
@@ -136,6 +371,76 @@
       "Kernel dmesg: \"Out of memory: Killed process <PID> (python)\" with no GPU-side errors",
       "/proc/meminfo shows MemAvailable = 0 with buffers/cache fully reclaimed during NIXL-heavy workloads",
       "MemAvailable in /proc/meminfo drops to zero despite adequate host RAM capacity"
+    ]
+  },
+  {
+    "slug": "cuda-alloc-failed",
+    "title": "CUDA Memory Allocation Failed",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA error: out of memory",
+      "RuntimeError: CUDA out of memory during initialization"
+    ]
+  },
+  {
+    "slug": "cuda-caching-allocator",
+    "title": "CUDA Caching Allocator Issue",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi shows memory not released",
+      "torch.cuda.memory_allocated() vs nvidia-smi shows different values",
+      "OOM despite torch.cuda.empty_cache() not helping"
+    ]
+  },
+  {
+    "slug": "cuda-context-leak",
+    "title": "CUDA Context Leak",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows growing memory with no process"
+    ]
+  },
+  {
+    "slug": "cuda-device-side-assert",
+    "title": "CUDA Device-Side Assert Triggered",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA error: device-side assert triggered"
+    ]
+  },
+  {
+    "slug": "cuda-driver-crash",
+    "title": "CUDA Driver Crash",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "NVRM: Xid error in dmesg",
+      "nvidia-smi: command not found after crash",
+      "nvidia-smi becomes unresponsive"
+    ]
+  },
+  {
+    "slug": "cuda-driver-mismatch",
+    "title": "CUDA Driver / Runtime Mismatch",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "ImportError: libcudart.so.12 cannot open",
+      "torch.cuda.is_available() returns False with nvidia-smi showing GPUs",
+      "nvidia-smi works but torch.cuda.is_available() returns False"
+    ]
+  },
+  {
+    "slug": "cuda-fabric-handle-import-101",
+    "title": "cuMemImportFromShareableHandle Fails (CUDA error 101)",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "transport/p2p.cc NCCL WARN Cuda failure 101 'invalid device ordinal'"
     ]
   },
   {
@@ -166,6 +471,16 @@
     ]
   },
   {
+    "slug": "cuda-illegal-instruction",
+    "title": "CUDA Illegal Instruction",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA error: illegal instruction",
+      "CUDA error: an illegal instruction was encountered"
+    ]
+  },
+  {
     "slug": "cuda-ipc-get-mem-handle-out-of-memory",
     "title": "cudaIpcGetMemHandle returned error out of memory",
     "category": "Memory",
@@ -184,6 +499,16 @@
     ]
   },
   {
+    "slug": "cuda-memory-leak",
+    "title": "CUDA Memory Leak",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi shows reserved memory growing across iterations",
+      "torch.cuda.memory_allocated() monotonically increases"
+    ]
+  },
+  {
     "slug": "cuda-oom",
     "title": "CUDA Out of Memory",
     "category": "Memory",
@@ -195,12 +520,32 @@
     ]
   },
   {
+    "slug": "cuda-shared-memory-limit",
+    "title": "CUDA Shared Memory Limit Exceeded",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: too much shared memory requested"
+    ]
+  },
+  {
     "slug": "cuda-uncorrectable-ecc",
     "title": "CUDA uncorrectable ECC error on an NVIDIA GPU",
     "category": "Hardware",
     "severity": "critical",
     "signatures": [
       "NVRM: Xid (PCI:0000:01:00): 95, Uncontained"
+    ]
+  },
+  {
+    "slug": "cuda-uvm-error",
+    "title": "CUDA Unified Memory Error",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "CUDA error: page fault or illegal memory access",
+      "CUDA error related to managed memory",
+      "CUDA out of memory with UVM"
     ]
   },
   {
@@ -240,6 +585,27 @@
     ]
   },
   {
+    "slug": "dataloader-failure",
+    "title": "DataLoader Failure",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: DataLoader worker (pid X) is killed",
+      "CUDA error in DataLoader worker"
+    ]
+  },
+  {
+    "slug": "dataloader-failure-1",
+    "title": "Dataloader Worker Failure",
+    "category": "Data Pipeline",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: DataLoader worker (pid X) is killed by signal: Terminated",
+      "CUDA error: an illegal memory access was encountered. Caused by corrupted batch data from a crashed worker",
+      "dmesg shows OOM killer or segfault originating from Python worker processes"
+    ]
+  },
+  {
     "slug": "dataloader-worker-killed-bus-error-shm",
     "title": "DataLoader worker is killed by signal: Bus error shared memory exhausted",
     "category": "Data Pipeline",
@@ -267,6 +633,25 @@
     ]
   },
   {
+    "slug": "ddp-port-conflict",
+    "title": "DDP Port Conflict",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Address already in use",
+      "torch.distributed.DistBackendError"
+    ]
+  },
+  {
+    "slug": "ddp-port-conflict-1",
+    "title": "DDP Port Conflict",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Distributed connection setup failed"
+    ]
+  },
+  {
     "slug": "ddp-reducer-expect-autograd-hooks-assert",
     "title": "DistributedDataParallel raises an internal reducer assertion when a backward pass arrives unexpectedly",
     "category": "Distributed Training",
@@ -274,6 +659,26 @@
     "signatures": [
       "[rank0]: RuntimeError: expect_autograd_hooks_ INTERNAL ASSERT FAILED at \"../torch/csrc/distributed/c10d/reducer.cpp\":1603, please report a bug to PyTorch.",
       "[rank0]: No no_sync() context - works without error"
+    ]
+  },
+  {
+    "slug": "ddp-setup-error",
+    "title": "DDP Setup Error",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Distributed package doesn't have NCCL built",
+      "torch.distributed.init_process_group fails"
+    ]
+  },
+  {
+    "slug": "ddp-setup-error-1",
+    "title": "DDP Setup Error",
+    "category": "Distributed Training",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: Default process group has not been initialized",
+      "torch.distributed.init_process_group failed"
     ]
   },
   {
@@ -285,6 +690,34 @@
       "RuntimeError: Assertion error (/workspace/.deps/deepgemm-src/csrc/apis/layout.hpp:60): Unknown SF transformation",
       "compressed_tensors_w8a8_fp8.py:169  process_weights_after_loading",
       "-> kernels/linear/scaled_mm/deep_gemm.py:96  process_weights_after_loading"
+    ]
+  },
+  {
+    "slug": "deepspeed-0.14-tensor-device-mismatch-regression",
+    "title": "DeepSpeed 0.14.x Regression: 'Expected all tensors to be on the same device' (ZeRO-3 / Adam Offload)",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu!",
+      "Device-mismatch RuntimeError during the optimizer step or ZeRO-3 resume"
+    ]
+  },
+  {
+    "slug": "deepspeed-async-io-windows-unsupported",
+    "title": "DeepSpeed async_io/aio Won't Compile on Windows",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "ERROR: Command errored out with exit status 1 during deepspeed build"
+    ]
+  },
+  {
+    "slug": "deepspeed-bf16-norm-underflow",
+    "title": "DeepSpeed bf16 Gradient Norm Underflow",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "AssertionError: all_groups_norm > 0 in DeepSpeed gradient norm computation"
     ]
   },
   {
@@ -306,6 +739,33 @@
     ]
   },
   {
+    "slug": "deepspeed-cusolverdn-header-not-found-build",
+    "title": "DeepSpeed cpu_adam Build Fails: 'cusolverDn.h: No such file or directory'",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: Error building extension 'cpu_adam'"
+    ]
+  },
+  {
+    "slug": "deepspeed-disable-dynamo-import-error-torch-version",
+    "title": "DeepSpeed ImportError: '_disable_dynamo_if_unsupported' is not defined",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "cannot import name '_disable_dynamo_if_unsupported' from 'torch.optim.optimizer'"
+    ]
+  },
+  {
+    "slug": "deepspeed-fd-leak-enospc",
+    "title": "DeepSpeed FastFileWriter File Descriptor Leak, Phantom ENOSPC",
+    "category": "Data Integrity",
+    "severity": "high",
+    "signatures": [
+      "OSError: [Errno 28] No space left on device when saving checkpoints"
+    ]
+  },
+  {
     "slug": "deepspeed-fp16-overflow-inf-nan-loss-scale-halved",
     "title": "Overflow detected during fp16 gradient unscaling. Skipping step, loss scale halved",
     "category": "Distributed Training",
@@ -315,12 +775,77 @@
     ]
   },
   {
+    "slug": "deepspeed-fusedadam-h100-illegal-mem",
+    "title": "DeepSpeed FusedAdam Illegal Memory Access on H100",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "CUDA error: illegal memory access in FusedAdam kernel",
+      "nvidia-smi shows the GPU in a bad state after the crash"
+    ]
+  },
+  {
+    "slug": "deepspeed-get-socket-with-port-import-error",
+    "title": "DeepSpeed ImportError: cannot import '_get_socket_with_port' from torch.distributed.elastic",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "ImportError: cannot import name '_get_socket_with_port' from 'torch.distributed.elastic.agent.server.api'",
+      "import deepspeed or launch fails with an ImportError"
+    ]
+  },
+  {
     "slug": "deepspeed-host-ram-oom-offload",
     "title": "DeepSpeed ZeRO Offload Host-RAM OOM (SIGKILL -9)",
     "category": "Memory",
     "severity": "high",
     "signatures": [
       "exits with return code = -9 (SIGKILL)"
+    ]
+  },
+  {
+    "slug": "deepspeed-inflight-params-backward",
+    "title": "DeepSpeed ZeRO-3: still have inflight params (backward)",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: still have inflight params"
+    ]
+  },
+  {
+    "slug": "deepspeed-init-failed",
+    "title": "DeepSpeed Initialization Failed",
+    "category": "Distributed Training",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: DeepSpeed engine initialization failed"
+    ]
+  },
+  {
+    "slug": "deepspeed-init-failed-1",
+    "title": "DeepSpeed Initialization Failed",
+    "category": "Distributed Training",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: DeepSpeed engine initialization failed"
+    ]
+  },
+  {
+    "slug": "deepspeed-moe-leaf-module",
+    "title": "DeepSpeed MoE + ZeRO-3 Hang. Missing Leaf Module Marking",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi shows 0% GPU utilization on all ranks during the hang"
+    ]
+  },
+  {
+    "slug": "deepspeed-nvme-checkpoint-race",
+    "title": "DeepSpeed ZeRO-3 NVMe Offload Checkpoint Race (FileExistsError)",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "FileExistsError: [Errno 17] File exists"
     ]
   },
   {
@@ -344,6 +869,25 @@
     ]
   },
   {
+    "slug": "deepspeed-param-in-flight-save",
+    "title": "DeepSpeed ZeRO-3: Cannot partition a param in flight (save)",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "AssertionError: Cannot partition a param in flight"
+    ]
+  },
+  {
+    "slug": "deepspeed-sigbus-exit-code-7",
+    "title": "DeepSpeed SIGBUS Exit Code -7 After Checkpoint Load",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "dmesg shows SIGBUS or Bus error on the training process",
+      "The crash occurs immediately after torch.load() or DeepSpeed checkpoint load"
+    ]
+  },
+  {
     "slug": "deepspeed-zero-offload-pin-memory-oom-2",
     "title": "Host RAM Exhaustion via ZeRO Offload Pinned Memory",
     "category": "Memory",
@@ -352,6 +896,35 @@
       "There are no CUDA Out of Memory errors; VRAM usage is well within limits.",
       "Exit code 137",
       "kernel: Out of memory: Killed process"
+    ]
+  },
+  {
+    "slug": "deepspeed-zero-stuck",
+    "title": "DeepSpeed ZeRO Stuck / Hang",
+    "category": "Distributed Training",
+    "severity": "critical",
+    "signatures": [
+      "dmesg shows no errors, process is still running",
+      "nvidia-smi shows 0% GPU utilization on all ranks"
+    ]
+  },
+  {
+    "slug": "deepspeed-zero-world-size-mismatch-3",
+    "title": "Optimizer State Load Failure on Cluster Resize",
+    "category": "State Management",
+    "severity": "medium",
+    "signatures": [
+      "AssertionError: Expected ... to be equal to ...",
+      "RuntimeError: Error(s) in loading state_dict for..."
+    ]
+  },
+  {
+    "slug": "deepspeed-zero2-memory-leak-on-destroy",
+    "title": "DeepSpeed ZeRO GPU Memory Not Freed After Training (hooks leak)",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "torch.cuda.memory_allocated stays high after del trainer"
     ]
   },
   {
@@ -364,12 +937,30 @@
     ]
   },
   {
+    "slug": "deepspeed-zero3-allgather-multiple-dtypes",
+    "title": "DeepSpeed ZeRO-3 Error with Parameters of Multiple Dtypes (allgather)",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError in deepspeed/runtime/zero/partition_parameters.py or stage3.py during allgather"
+    ]
+  },
+  {
     "slug": "deepspeed-zero3-checkpoint-gather-oom-1",
     "title": "Rank 0 OOM During ZeRO-3 Checkpoint Save",
     "category": "Memory",
     "severity": "critical",
     "signatures": [
       "RuntimeError: CUDA out of memory. Tried to allocate..."
+    ]
+  },
+  {
+    "slug": "deepspeed-zero3-grad-clip-nan",
+    "title": "DeepSpeed ZeRO-3 Stale Sync during Grad Clipping",
+    "category": "Software",
+    "severity": "medium",
+    "signatures": [
+      "AssertionError: Gradient clipping returned NaN"
     ]
   },
   {
@@ -380,6 +971,15 @@
     "signatures": [
       "RuntimeError: NCCL communicator was aborted",
       "Watchdog caught collective operation timeout: WorkNCCL(SeqNum=...)"
+    ]
+  },
+  {
+    "slug": "deepspeed-zero3-offload-1",
+    "title": "DeepSpeed ZeRO-3 Parameter Offload Illegal Access",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA error: an illegal memory access was encountered"
     ]
   },
   {
@@ -401,12 +1001,51 @@
     ]
   },
   {
+    "slug": "deepspeed-zero3-weight-not-2d",
+    "title": "DeepSpeed ZeRO-3: 'weight' must be 2-D at F.embedding",
+    "category": "Reliability",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: 'weight' must be 2-D"
+    ]
+  },
+  {
+    "slug": "device-assert",
+    "title": "CUDA Device Assertion Failure",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA error: device-side assert triggered at /pytorch/aten/src/ATen/native/cuda/..",
+      "nvidia-smi shows Xid errors (14, 48, 64) associated with the failing GPU"
+    ]
+  },
+  {
+    "slug": "device-assert-tokenizer-vocab-mismatch",
+    "title": "CUDA Device-Side Assert from Tokenizer/Embedding Vocab Mismatch",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "CUDA error: device-side assert triggered, unusable context afterward"
+    ]
+  },
+  {
     "slug": "diffusers-vae-tiling-decode-out-of-memory",
     "title": "CUDA out of memory during AutoencoderKL tiling decode intermediate latents",
     "category": "Environment",
     "severity": "high",
     "signatures": [
       "CUDA out of memory during AutoencoderKL tiling decode intermediate latents"
+    ]
+  },
+  {
+    "slug": "disk-full",
+    "title": "Disk Full During Training",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "OSError: [Errno 28] No space left on device",
+      "Crash appears as generic CUDA error wrapping IO exception",
+      "nvidia-smi shows normal GPU but df -h shows 100%"
     ]
   },
   {
@@ -421,12 +1060,32 @@
     ]
   },
   {
+    "slug": "docker-gpu-error",
+    "title": "Docker GPU Passthrough Error",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi inside container fails",
+      "nvidia-smi: command not found inside container",
+      "torch.cuda.is_available() returns False in container but True on host"
+    ]
+  },
+  {
     "slug": "docker-nvidia-container-cli-initialization-error",
     "title": "could not select device driver with capabilities gpu nvidia-container-cli initialization error",
     "category": "Environment",
     "severity": "medium",
     "signatures": [
       "could not select device driver with capabilities gpu nvidia-container-cli initialization error"
+    ]
+  },
+  {
+    "slug": "docker-shm-exhaustion",
+    "title": "Docker /dev/shm Exhaustion. NCCL Shared Memory Allocation Failure",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN posix_fallocate failed: No space left on device"
     ]
   },
   {
@@ -457,6 +1116,25 @@
     ]
   },
   {
+    "slug": "dpx-fail-0445-topology-graph-override-mismatch",
+    "title": "Topology Graph Override Mismatch",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: NCCL Error 2: unhandled system error",
+      "NCCL INFO NCCL_GRAPH_FILE set by environment to /opt/microsoft/ncv4/graph.xml"
+    ]
+  },
+  {
+    "slug": "dpx-fail-0446-socket-interface-bootstrap-isolation",
+    "title": "Socket Interface Bootstrap Isolation",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "NCCL INFO NET/Socket : Using [0]eno1:"
+    ]
+  },
+  {
     "slug": "dpx-fail-0448-uncorrectable-double-bit-ecc-error",
     "title": "Uncorrectable Double Bit ECC Error",
     "category": "Hardware",
@@ -467,12 +1145,94 @@
     ]
   },
   {
+    "slug": "dpx-fail-0449-fabric-induced-sm-containment-cascade",
+    "title": "Fabric-Induced SM Containment Cascade",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "XID 137 (NVLink TLC RX PRIV Error)",
+      "XID 74(NVLINK Error) detected",
+      "Multiple GPUs across different physical nodes simultaneously throw Xid 94."
+    ]
+  },
+  {
+    "slug": "dpx-fail-0451-pdn-resonance-induced-silent-data-corruption",
+    "title": "PDN Resonance-Induced Silent Data Corruption",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "Hardware logs (dmesg, Xid, DCGM) appear completely healthy with 0 errors."
+    ]
+  },
+  {
+    "slug": "dpx-fail-0452-zero-3-partitioned-checkpoint-dimensionality-collapse",
+    "title": "ZeRO-3 Partitioned Checkpoint Dimensionality Collapse",
+    "category": "Model",
+    "severity": "high",
+    "signatures": [
+      "size mismatch for *: copying a param with shape torch.Size([1]) from checkpoint, the shape in current model is torch.Size([X, Y])",
+      "size mismatch for *: copying a param with shape torch.Size([0]) from checkpoint"
+    ]
+  },
+  {
+    "slug": "dpx-fail-0453-root-fsdp-activation-checkpointing-backward-assert",
+    "title": "Root FSDP Activation Checkpointing Backward Assert",
+    "category": "Model",
+    "severity": "high",
+    "signatures": [
+      "AssertionError: APIs are called in the incorrect state"
+    ]
+  },
+  {
     "slug": "dpx-fail-0455-moe-activation-recomputation-export-oom",
     "title": "MoE Activation Recomputation Export OOM",
     "category": "Model",
     "severity": "medium",
     "signatures": [
       "CUDA out of memory"
+    ]
+  },
+  {
+    "slug": "dpx-fail-0458-nccl-shared-memory",
+    "title": "NCCL Shared Memory Namespace Error",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN Call to open failed: No such file or directory",
+      "NCCL WARN Error while attaching to shared memory segment /dev/shm/nccl-"
+    ]
+  },
+  {
+    "slug": "dpx-fail-0459-xid-43",
+    "title": "Xid 43 (GPU Stopped Processing)",
+    "category": "CUDA",
+    "severity": "high",
+    "xid": 43,
+    "signatures": []
+  },
+  {
+    "slug": "dpx-fail-0460-xid-61",
+    "title": "Xid 61 (Internal Micro-Controller Breakpoint)",
+    "category": "Hardware",
+    "severity": "medium",
+    "xid": 61,
+    "signatures": []
+  },
+  {
+    "slug": "dpx-fail-0461-xid-62",
+    "title": "Xid 62 (Internal Micro-Controller Halt)",
+    "category": "Hardware",
+    "severity": "medium",
+    "xid": 62,
+    "signatures": []
+  },
+  {
+    "slug": "efa-driver-issue",
+    "title": "AWS EFA Driver Issue",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN NET/IB: No IB devices found"
     ]
   },
   {
@@ -525,6 +1285,55 @@
     ]
   },
   {
+    "slug": "flash-attention-seqlen-1",
+    "title": "FlashAttention Max Sequence Length Illegal Access",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA error: an illegal memory access was encountered"
+    ]
+  },
+  {
+    "slug": "flashattention-arch-unsupported-1",
+    "title": "FlashAttention Unsupported GPU Architecture",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: FlashAttention only supports Ampere GPUs or newer."
+    ]
+  },
+  {
+    "slug": "flashattention-build-isolation-1",
+    "title": "FlashAttention Build Hang / OOM due to missing Ninja",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: ninja is required to build C++ extensions"
+    ]
+  },
+  {
+    "slug": "flashattention-cuda-mismatch-1",
+    "title": "PyTorch vs System CUDA Compilation Mismatch",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: The detected CUDA version (.*) mismatches the version that was used to compile PyTorch (.*)",
+      "RuntimeError: nvcc mismatch",
+      "Pip installation aborts with a RuntimeError mentioning CUDA version mismatch."
+    ]
+  },
+  {
+    "slug": "flashattention-wheel-incompatibility-1",
+    "title": "Pre-built Wheel Undefined Symbol Error",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "ImportError: .*undefined symbol: _ZN2at4_ops19empty_memory_format4callEN3c108ArrayRefIlEENS2_8optionalINS2_10ScalarTypeEEENS5_INS2_6LayoutEEENS5_INS2_6DeviceEEENS5_IbEENS5_INS2_12MemoryFormatEEE",
+      "ImportError: cannot import name 'flash_attn_2_cuda' from 'flash_attn'",
+      "Importing flash_attn in Python immediately crashes with an `ImportError` regarding undefined symbols."
+    ]
+  },
+  {
     "slug": "flashinfer-cuda-illegal-address-prefill",
     "title": "flashinfer CUDA kernel launch failure cudaErrorIllegalAddress paged_prefill",
     "category": "Infrastructure",
@@ -574,12 +1383,50 @@
     ]
   },
   {
+    "slug": "fsdp-missing-keys",
+    "title": "FSDP Missing Keys / Unexpected Keys",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Error(s) in loading state_dict for FSDPModel: Missing key(s)",
+      "KeyError: 'model.layers.0.self_attn.q_proj.weight' missing from optimizer state"
+    ]
+  },
+  {
+    "slug": "fsdp-nccl-system-error-ib",
+    "title": "FSDP ncclSystemError on InfiniBand (works on TCP)",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "ncclSystemError: System call (e.g. socket, malloc) or external library call failed",
+      "misc/socket.cc returns error code 2 (ENOENT) on node 2 bootstrap"
+    ]
+  },
+  {
+    "slug": "fsdp-qlora-uniform-dtype-flatten",
+    "title": "FSDP+QLoRA ValueError: Must flatten tensors with uniform dtype (float32 vs bfloat16)",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "ValueError: Must flatten tensors with uniform dtype but got torch.float32 and torch.bfloat16"
+    ]
+  },
+  {
     "slug": "fsdp-reduce-scatter-backward-timeout",
     "title": "FSDP reduce_scatter backward hook timed out waiting for gradient sync",
     "category": "Distributed Training",
     "severity": "medium",
     "signatures": [
       "FSDP reduce_scatter backward hook timed out waiting for gradient sync"
+    ]
+  },
+  {
+    "slug": "fsdp-s3-path-corruption",
+    "title": "FSDP Checkpoint S3 Path Malformation",
+    "category": "Storage",
+    "severity": "medium",
+    "signatures": [
+      "ValueError: Invalid S3 URI"
     ]
   },
   {
@@ -600,6 +1447,16 @@
       "KeyError: 'lm_head.weight'",
       "File \".../accelerate/accelerator.py\", in _prepare_fsdp2",
       "mapping = {p: new_named_params[n] for n, p in old_named_params.items()}"
+    ]
+  },
+  {
+    "slug": "gcc-version-mismatch",
+    "title": "GCC Version Mismatch",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "ImportError: /lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found",
+      "error: command 'gcc' failed with exit status 1"
     ]
   },
   {
@@ -630,6 +1487,15 @@
     ]
   },
   {
+    "slug": "gloo-backend-issue",
+    "title": "Gloo Backend Issue",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: Gloo does not support GPU tensors"
+    ]
+  },
+  {
     "slug": "gloo-connection-refused-port-29500-rendezvous",
     "title": "Gloo Connection refused to host 29500 during initial rendezvous",
     "category": "Communication",
@@ -645,6 +1511,16 @@
     "severity": "medium",
     "signatures": [
       "TPU Inter-Chip Interconnect ICI link error mesh coordinate link state DOWN"
+    ]
+  },
+  {
+    "slug": "gpu-clock-throttle",
+    "title": "GPU Clock Throttle",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows clocks dropped",
+      "nvidia-smi -q shows current clocks lower than max"
     ]
   },
   {
@@ -671,6 +1547,111 @@
     ]
   },
   {
+    "slug": "gpu-memory-bandwidth-limit",
+    "title": "GPU Memory Bandwidth Limit",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows high GPU utilization but slow training"
+    ]
+  },
+  {
+    "slug": "gpu-memory-bus-error",
+    "title": "GPU Memory Bus Error",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "Xid 48 or 64 in dmesg"
+    ]
+  },
+  {
+    "slug": "gpu-memory-clock-throttle",
+    "title": "GPU Memory Clock Throttle",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows memory clock lower than max"
+    ]
+  },
+  {
+    "slug": "gpu-mig-mode",
+    "title": "GPU MIG (Multi-Instance GPU) Mode",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows MIG instances",
+      "torch.cuda.device_count() returns wrong number"
+    ]
+  },
+  {
+    "slug": "gpu-not-detected",
+    "title": "GPU Not Detected",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: Found no NVIDIA driver on your system",
+      "nvidia-smi: command not found",
+      "torch.cuda.is_available() returns False"
+    ]
+  },
+  {
+    "slug": "gpu-overheating",
+    "title": "GPU Overheating",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi shows temperature above 85C",
+      "nvidia-smi -q shows thermal throttling"
+    ]
+  },
+  {
+    "slug": "gpu-power-cap",
+    "title": "GPU Power Cap Reached",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows power limit reached"
+    ]
+  },
+  {
+    "slug": "gpu-temperature-throttle",
+    "title": "GPU Temperature Throttling",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "XID 62 thermal slowdown messages",
+      "nvidia-smi shows lower clock than base"
+    ]
+  },
+  {
+    "slug": "gpu-thermal-design-power",
+    "title": "GPU TDP / Power Limit",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows power limit reached"
+    ]
+  },
+  {
+    "slug": "gpu-thermal-throttle",
+    "title": "GPU Thermal Throttling",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi shows clocks dropped to base",
+      "nvidia-smi -q shows thermal throttling reason"
+    ]
+  },
+  {
+    "slug": "gpu-utilization-low",
+    "title": "GPU Utilization Low",
+    "category": "Performance",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows low %"
+    ]
+  },
+  {
     "slug": "gpu-xid-ecc",
     "title": "GPU Uncorrectable ECC Memory Error (Xid 48/94/95)",
     "category": "GPU Memory",
@@ -689,6 +1670,15 @@
     "severity": "critical",
     "signatures": [
       "sudden gradient norm spike without learning rate change transient DRAM parity error"
+    ]
+  },
+  {
+    "slug": "grpo-vllm-inference-tensors-backward",
+    "title": "GRPO/vLLM: 'Inference tensors cannot be saved for backward'",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Inference tensors cannot be saved for backward. To work around you can make a clone to get a normal tensor and use it in autograd"
     ]
   },
   {
@@ -746,6 +1736,73 @@
     ]
   },
   {
+    "slug": "hardware-sdc-loss-spike",
+    "title": "HBM Silent Data Corruption leading to Loss Spikes",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "No Xid errors, CUDA errors, or kernel panics are logged in the system."
+    ]
+  },
+  {
+    "slug": "hdf5-corruption",
+    "title": "HDF5 Corruption",
+    "category": "Reliability",
+    "severity": "medium",
+    "signatures": [
+      "OSError: Unable to open file (Unable to truncate file)",
+      "OSError: Unable to open file"
+    ]
+  },
+  {
+    "slug": "hdf5-data-corruption",
+    "title": "HDF5 Data Corruption",
+    "category": "Data Pipeline",
+    "severity": "high",
+    "signatures": [
+      "OSError: unable to read file (bad signature)",
+      "RuntimeError: corrupted file"
+    ]
+  },
+  {
+    "slug": "hdf5-fork-deadlock-1",
+    "title": "HDF5 Concurrent Read Deadlock with Multiprocessing",
+    "category": "Data",
+    "severity": "high",
+    "signatures": [
+      "BlockingIOError: [Errno 11] Resource temporarily unavailable"
+    ]
+  },
+  {
+    "slug": "hf-datasets-map-subprocess-died-windows",
+    "title": "HuggingFace datasets .map() 'subprocess abruptly died' on Windows",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: One of the subprocesses has abruptly died during map operation. To debug the error, disable multiprocessing"
+    ]
+  },
+  {
+    "slug": "historical-log-replay-false-hardware-alarms",
+    "title": "Replayed/Archived Logs Triggering False Hardware Diagnoses",
+    "category": "Reliability",
+    "severity": "medium",
+    "signatures": [
+      "banners like \"replaying archived\" ignored by matchers",
+      "current nvidia-smi shows all devices healthy",
+      "dmesg lines with month-old timestamps inside a current job log"
+    ]
+  },
+  {
+    "slug": "horovod-setup-error",
+    "title": "Horovod Setup Error",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "HorovodSpark RuntimeError"
+    ]
+  },
+  {
     "slug": "host-oom-dataloader-rss-growth",
     "title": "Host RAM OOM-Kill of DataLoader Workers Misread as GPU OOM",
     "category": "Memory",
@@ -776,12 +1833,50 @@
     ]
   },
   {
+    "slug": "huggingface-tokenizer-error",
+    "title": "HuggingFace Tokenizer Error",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "ValueError: Tokenizer class XX does not match class YY",
+      "OSError: Can't load tokenizer for model-name"
+    ]
+  },
+  {
+    "slug": "huggingface-tokenizers-error",
+    "title": "HuggingFace Tokenizers Rust Error",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "OSError: Failed to load native tokenization library"
+    ]
+  },
+  {
     "slug": "huggingface-tokenizers-fork-parallelism-deadlock",
     "title": "The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks",
     "category": "Environment",
     "severity": "high",
     "signatures": [
       "The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks"
+    ]
+  },
+  {
+    "slug": "huggingface-xet-migration-disk-pressure",
+    "title": "Xet Storage Migration Workers Filling Disk with Orphaned Temporary Shard Files",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "Migration workers report \"No space left on device\" errors"
+    ]
+  },
+  {
+    "slug": "import-error",
+    "title": "Import / Environment Error",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "ImportError: libcudart.so.12: cannot open shared object file",
+      "RuntimeError: Detected that PyTorch and CUDA are not compatible"
     ]
   },
   {
@@ -802,6 +1897,15 @@
       "torch._inductor.exc.InductorError: IndexError: tuple index out of range",
       "File \".../torch/_inductor/fx_passes/post_grad.py\", in pointless_cumsum_replacement",
       "dim_size = shape[dim]"
+    ]
+  },
+  {
+    "slug": "inference-memory-leak",
+    "title": "Inference Memory Leak",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "torch.cuda.memory_allocated() grows over time"
     ]
   },
   {
@@ -888,12 +1992,32 @@
     ]
   },
   {
+    "slug": "key-error",
+    "title": "Key Error (Python Dictionary)",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "KeyError: 'key_name'",
+      "KeyError: 'model.layers.0.weight'",
+      "KeyError: missing key in state_dict"
+    ]
+  },
+  {
     "slug": "kubernetes-mig-slice-device-locked-defunct-process",
     "title": "Insufficient nvidia.com/mig device is locked by defunct process",
     "category": "Infrastructure",
     "severity": "medium",
     "signatures": [
       "Insufficient nvidia.com/mig device is locked by defunct process"
+    ]
+  },
+  {
+    "slug": "lambda-host-panic-gh200-network-intermittent",
+    "title": "Host Component Kernel Panic Causing Intermittent Network Connectivity on GH200 Instances",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi on hypervisor shows GH200 GPU as present but network interface unavailable"
     ]
   },
   {
@@ -906,6 +2030,17 @@
     ]
   },
   {
+    "slug": "lightning-torch-compile-double-log-graphbreak",
+    "title": "PyTorch Lightning + torch.compile: MisconfigurationException on self.log",
+    "category": "Training Stability",
+    "severity": "medium",
+    "signatures": [
+      "Removing torch.compile makes the error disappear",
+      "Only occurs with torch.compile enabled",
+      "torch.compile + Lightning crashes during logging"
+    ]
+  },
+  {
     "slug": "loss-is-nan-bf16-transformer-gradient-divergence",
     "title": "Loss is NaN gradients contained NaN in transformer layer mlp c_proj bf16",
     "category": "Training Stability",
@@ -915,12 +2050,50 @@
     ]
   },
   {
+    "slug": "megatron-ep-overlap-moe-baton-2",
+    "title": "MoE Expert Parallelism Comm Overlap Deadlock",
+    "category": "Hardware/Network",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN [send] via NET/IB/0/GDRDMA failed",
+      "NCCL INFO Call to ncclAllGather failed"
+    ]
+  },
+  {
+    "slug": "megatron-init-failed",
+    "title": "Megatron-LM Initialization Failed",
+    "category": "Distributed Training",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: invalid tensor parallel configuration"
+    ]
+  },
+  {
+    "slug": "megatron-jit-fuser-unknown-type-sequence",
+    "title": "Megatron @jit_fuser Fails: 'Unknown type constructor Sequence'",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: Unknown type constructor Sequence",
+      "torch.jit.script fails compiling a Megatron fused function"
+    ]
+  },
+  {
     "slug": "megatron-p2p-communication-timeout",
     "title": "P2PTimeoutError: Timeout receiving forward activations from rank",
     "category": "Distributed Training",
     "severity": "high",
     "signatures": [
       "P2PTimeoutError: Timeout receiving forward activations from rank"
+    ]
+  },
+  {
+    "slug": "megatron-pp-variable-seq-shape-deadlock-1",
+    "title": "Variable Sequence Length Shape Exchange Deadlock",
+    "category": "Network",
+    "severity": "critical",
+    "signatures": [
+      "Rank stalled in torch.distributed.irecv"
     ]
   },
   {
@@ -942,12 +2115,105 @@
     ]
   },
   {
+    "slug": "megatron-tp-comm-overlap-deadlock-5",
+    "title": "TP Comm Overlap Topology Conflict Deadlock",
+    "category": "Network",
+    "severity": "medium",
+    "signatures": [
+      "Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "megatron-tp-rng-state-divergence-3",
+    "title": "Tensor Parallel RNG State Context Divergence Deadlock",
+    "category": "Software",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: RNG state changed within GPU RNG context"
+    ]
+  },
+  {
+    "slug": "mellanox-ofed-driver-mismatch",
+    "title": "Mellanox OFED Driver Mismatch",
+    "category": "Hardware/Vendor",
+    "severity": "critical",
+    "signatures": [
+      "NCCL warns: 'NET/IB : No device found'",
+      "dmesg shows MLNX_OFED module load failures or unresolved symbols"
+    ]
+  },
+  {
+    "slug": "memory-fragmentation",
+    "title": "Memory Fragmentation",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "torch.cuda.memory_summary() shows fragmented free blocks"
+    ]
+  },
+  {
+    "slug": "memory-row-remapping",
+    "title": "GPU Memory Row Remapping Event",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "ECC errors followed by a memory remap"
+    ]
+  },
+  {
+    "slug": "memory-summary-tool",
+    "title": "Memory Summary Tool Usage",
+    "category": "Memory",
+    "severity": "low",
+    "signatures": [
+      "Memory usage reported doesn't match nvidia-smi"
+    ]
+  },
+  {
+    "slug": "meta-llama3-hbm3-memory-failure",
+    "title": "HBM3 Memory Failures on 16384-GPU Cluster During Llama 3 Training",
+    "category": "Fail-Slow",
+    "severity": "critical",
+    "signatures": [
+      "Xid 79 GPU has fallen off the bus preceded by thermal and power excursions",
+      "dmesg logs showing HBM3 ECC correctable error counts rising over time before uncorrectable errors",
+      "NCCL watchdog timeouts with nvidia-smi reporting falling GPU memory bandwidth"
+    ]
+  },
+  {
+    "slug": "meta-temperature-throughput-variance",
+    "title": "Mid-Day Temperature Fluctuations Causing 1-2% Training Throughput Variation",
+    "category": "Reliability",
+    "severity": "low",
+    "signatures": [
+      "nvidia-smi reports GPU clock rate oscillating between base and boost clock on a diurnal schedule"
+    ]
+  },
+  {
     "slug": "milvus-segment-load-gpu-vram-oom",
     "title": "milvus Failed to load vector index segment into GPU memory insufficient VRAM",
     "category": "Memory",
     "severity": "medium",
     "signatures": [
       "milvus Failed to load vector index segment into GPU memory insufficient VRAM"
+    ]
+  },
+  {
+    "slug": "mixed-precision-overflow",
+    "title": "Mixed Precision Overflow",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: loss is inf"
+    ]
+  },
+  {
+    "slug": "mmap-file-handle-exhaustion",
+    "title": "MMap File Handle Exhaustion",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "OSError: [Errno 24] Too many open files"
     ]
   },
   {
@@ -959,6 +2225,15 @@
       "AttributeError: 'Mxfp4GptOssExperts' object has no attribute 'down_proj_scales'. Did you mean: 'down_proj_bias'?",
       "File \".../transformers/modeling_utils.py\", in _load_state_dict_into_meta_model",
       "value = getattr(module, param_type)"
+    ]
+  },
+  {
+    "slug": "nan-loss-1",
+    "title": "NaN Loss During Training",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "torch.autograd detects NaN"
     ]
   },
   {
@@ -1507,6 +2782,25 @@
     ]
   },
   {
+    "slug": "network-partition",
+    "title": "Network Partition",
+    "category": "Reliability",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN unhandled cuda error",
+      "torch.distributed barrier hangs"
+    ]
+  },
+  {
+    "slug": "nfs-mount-failure",
+    "title": "NFS Mount Failure",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "Connection reset by peer"
+    ]
+  },
+  {
     "slug": "nfs-server-not-responding-d-state-hung-process",
     "title": "nfs: server not responding still trying task blocked for more than 120 seconds",
     "category": "Data Pipeline",
@@ -1567,6 +2861,16 @@
     "severity": "medium",
     "signatures": [
       "nvidia-peermem kernel rejected peer-direct DMA mapping BAR1 aperture exhausted"
+    ]
+  },
+  {
+    "slug": "nvidia-smi-missing",
+    "title": "nvidia-smi Missing or Broken",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver",
+      "nvidia-smi: command not found"
     ]
   },
   {
@@ -1694,12 +2998,42 @@
     ]
   },
   {
+    "slug": "nvidia-xid-94-contained-ecc-error",
+    "title": "NVIDIA Xid 94 - Contained ECC Memory Error",
+    "category": "Hardware",
+    "severity": "medium",
+    "xid": 94,
+    "signatures": []
+  },
+  {
     "slug": "nvlink-5-switch-tray-asic-link-training-failure",
     "title": "NVLink 5 switch tray ASIC port link training failed signal integrity",
     "category": "Hardware",
     "severity": "critical",
     "signatures": [
       "NVLink 5 switch tray ASIC port link training failed signal integrity"
+    ]
+  },
+  {
+    "slug": "nvlink-error",
+    "title": "NVLink Error",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "NCCL warnings about P2P link issues",
+      "dmesg: nvlink: link X is down",
+      "nvidia-smi nvlink --link shows link down"
+    ]
+  },
+  {
+    "slug": "nvlink-nccl-ib-fallback-routing-loop",
+    "title": "NCCL NVLink Routing Loop Fallback Hang",
+    "category": "Software/Network",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN Call to cuMemcpy3DAsync failed",
+      "NCCL WARN Ring 00 : 8 -> 0 via P2P/IPC/read",
+      "NCCL INFO NET/IB : Got completion with error 12"
     ]
   },
   {
@@ -1743,12 +3077,31 @@
     ]
   },
   {
+    "slug": "nvls-multicast-slot-exhaustion",
+    "title": "NVLS Multicast Slot Exhaustion (NVSwitch)",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "ncclUnhandledCudaError on communicator init",
+      "Failed to bind NVLink SHARP (NVLS) Multicast memory of size ... : CUDA error 2 'out of memory'"
+    ]
+  },
+  {
     "slug": "nvml-hw-power-brake-asserted-power-cap",
     "title": "HW Power Brake Asserted GPU power capped check chassis PSU redundancy",
     "category": "Hardware",
     "severity": "medium",
     "signatures": [
       "HW Power Brake Asserted GPU power capped check chassis PSU redundancy"
+    ]
+  },
+  {
+    "slug": "ofi-memlock-exhaustion",
+    "title": "OFI Memlock Exhaustion. RDMA Memory Registration Failure",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN NET/OFI Unable to register memory RC:12"
     ]
   },
   {
@@ -1807,6 +3160,43 @@
     ]
   },
   {
+    "slug": "optimizer-state-dict-mismatch",
+    "title": "Optimizer State Dict Mismatch",
+    "category": "Data Integrity",
+    "severity": "high",
+    "signatures": [
+      "KeyError: missing optimizer state for parameters"
+    ]
+  },
+  {
+    "slug": "optimizer-state-dict-mismatch-1",
+    "title": "Optimizer State Dict Mismatch",
+    "category": "Data Integrity",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Error(s) in loading optimizer state_dict: Unexpected key(s)",
+      "KeyError: missing optimizer state for parameters"
+    ]
+  },
+  {
+    "slug": "parquet-schema-mismatch",
+    "title": "Parquet Schema Mismatch",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "pyarrow.lib.ArrowTypeError: Schema mismatch"
+    ]
+  },
+  {
+    "slug": "pcie-aer-uncorrectable-gpu-drop",
+    "title": "PCIe AER Uncorrectable Error Dropping GPU",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "nvidia-smi lists fewer GPUs than physically present, or shows ERR!/No devices found."
+    ]
+  },
+  {
     "slug": "pcie-link-degraded-gen5-to-gen1-bandwidth-drop",
     "title": "PCIe Link Width 1x Max 16x PCIe Link Gen 1 Max 5 degraded",
     "category": "Hardware",
@@ -1816,12 +3206,31 @@
     ]
   },
   {
+    "slug": "pcie-link-speed-degradation-thermal",
+    "title": "Silent PCIe Link Speed Downgrade Under Load",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi shows low GPU utilization but high memory transfer times."
+    ]
+  },
+  {
     "slug": "peft-lora-int8-gradients-runtime-error",
     "title": "Only Tensors of floating point dtype can require gradients int8 LoRA",
     "category": "Environment",
     "severity": "medium",
     "signatures": [
       "Only Tensors of floating point dtype can require gradients int8 LoRA"
+    ]
+  },
+  {
+    "slug": "pin-memory-issue",
+    "title": "Pinned Memory Transfer Issue",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: cudaHostAlloc failed",
+      "OSError: cannot allocate pinned memory"
     ]
   },
   {
@@ -1836,6 +3245,36 @@
     ]
   },
   {
+    "slug": "python-import-error",
+    "title": "Python Import Error",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "ImportError: cannot import name from torch",
+      "ImportError: DLL load failed",
+      "ImportError: cannot import name"
+    ]
+  },
+  {
+    "slug": "python-multiprocessing-fork",
+    "title": "Python Multiprocessing Fork Issue",
+    "category": "Data Pipeline",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: can't pickle multiprocessing objects"
+    ]
+  },
+  {
+    "slug": "python-multiprocessing-fork-issue",
+    "title": "Python Multiprocessing Fork Issue",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: Cannot re-initialize CUDA in forked subprocess",
+      "CUDA error in forked worker"
+    ]
+  },
+  {
     "slug": "python-oom",
     "title": "Python Out of Memory",
     "category": "Memory",
@@ -1845,12 +3284,87 @@
     ]
   },
   {
+    "slug": "python-path-conflict",
+    "title": "Python Path Conflict",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "ImportError: cannot import name from installed version",
+      "ImportError: cannot import name from different version"
+    ]
+  },
+  {
+    "slug": "python-version-mismatch",
+    "title": "Python Version Mismatch",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "TypeError: 'type' object is not subscriptable (Py 3.9 vs 3.10+)"
+    ]
+  },
+  {
+    "slug": "pytorch-amp-gradscaler-nan-1",
+    "title": "Missing GradScaler Update in AMP Loop",
+    "category": "Precision",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Function 'LogSoftmaxBackward' returned nan values in its 0th output"
+    ]
+  },
+  {
+    "slug": "pytorch-checkpoint-non-atomic-corruption",
+    "title": "Non-Atomic Checkpoint Save Interruption",
+    "category": "Storage",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: unpickling failed"
+    ]
+  },
+  {
+    "slug": "pytorch-cuda-caching-allocator-fragmentation",
+    "title": "CUDA Caching Allocator Fragmentation",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "torch.cuda.memory_reserved() >> memory_allocated()"
+    ]
+  },
+  {
+    "slug": "pytorch-cuda-mismatch",
+    "title": "PyTorch CUDA Mismatch",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA not available",
+      "torch.cuda.is_available() returns False"
+    ]
+  },
+  {
     "slug": "pytorch-cuda-out-of-memory-tried-to-allocate",
     "title": "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate",
     "category": "Distributed Training",
     "severity": "high",
     "signatures": [
       "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate"
+    ]
+  },
+  {
+    "slug": "pytorch-ddp-allgather-shape-mismatch",
+    "title": "dist.all_gather Timeout from Dynamic Tensor Shapes",
+    "category": "Synchronization",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp"
+    ]
+  },
+  {
+    "slug": "pytorch-ddp-checkpoint-race-condition",
+    "title": "Multi-Worker Write Race Condition",
+    "category": "Storage",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: File is not a zip file",
+      "PermissionError: [Errno 13] Permission denied"
     ]
   },
   {
@@ -1882,6 +3396,15 @@
     ]
   },
   {
+    "slug": "pytorch-embedding-oob-1",
+    "title": "nn.Embedding Out of Bounds Illegal Memory Access",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA error: an illegal memory access was encountered"
+    ]
+  },
+  {
     "slug": "pytorch-expected-all-tensors-same-device",
     "title": "Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu",
     "category": "Distributed Training",
@@ -1910,6 +3433,15 @@
     ]
   },
   {
+    "slug": "pytorch-fsdp-memory-fragmentation",
+    "title": "CUDA OOM from Caching Allocator Fragmentation",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "CUDA out of memory. Tried to allocate..."
+    ]
+  },
+  {
     "slug": "pytorch-fsdp-nccl-timeout-custom-pg",
     "title": "FSDP Ignores User-Defined NCCL Timeout with Device Mesh",
     "category": "Network",
@@ -1918,6 +3450,26 @@
       "torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp",
       "ncclTimeout: unhandled system error",
       "Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "pytorch-lustre-atomic-save-io-error",
+    "title": "Atomic Save I/O Error on Parallel FS",
+    "category": "Storage",
+    "severity": "high",
+    "signatures": [
+      "OSError: [Errno 5] Input/output error",
+      "OSError: [Errno 116] Stale file handle"
+    ]
+  },
+  {
+    "slug": "pytorch-multinomial-nan-1",
+    "title": "torch.multinomial Invalid Probability Memory Access",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA error: an illegal memory access was encountered",
+      "RuntimeError: probability tensor contains either `inf`, `nan` or element < 0"
     ]
   },
   {
@@ -1976,6 +3528,34 @@
     ]
   },
   {
+    "slug": "pytorch-sdpa-flashattn-version-1",
+    "title": "PyTorch SDPA FlashAttention Version Incompatibility",
+    "category": "Software",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: No available kernel. Aborting execution.",
+      "Calling `torch.nn.functional.scaled_dot_product_attention` is significantly slower than expected."
+    ]
+  },
+  {
+    "slug": "pytorch-sqrt-zero-autograd",
+    "title": "Autograd Singularity at sqrt(0)",
+    "category": "Mathematics",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Function 'SqrtBackward' returned nan values"
+    ]
+  },
+  {
+    "slug": "raid-storage-failure",
+    "title": "RAID Storage Failure",
+    "category": "Infrastructure",
+    "severity": "critical",
+    "signatures": [
+      "dmesg: I/O error, dev sda, sector X"
+    ]
+  },
+  {
     "slug": "ray-client-server-fails-after-grpcio-upgrade-on-arm64",
     "title": "Ray client connection aborts on ARM64 after a grpcio upgrade while x86 is unaffected",
     "category": "Distributed Training",
@@ -2014,6 +3594,15 @@
     ]
   },
   {
+    "slug": "roce-mtu-mismatch",
+    "title": "RoCE MTU Mismatch. Completion Error 12 / Vendor Err 129",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN Got completion with error 12, vendor err 129"
+    ]
+  },
+  {
     "slug": "rocev2-pfc-storm-priority-flow-control-deadlock",
     "title": "mlx5_core mlx5_pfc_stall_detect PFC storm detected on priority fabric deadlock",
     "category": "Communication",
@@ -2041,6 +3630,17 @@
     ]
   },
   {
+    "slug": "runtime-error",
+    "title": "Runtime Error (Generic)",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: generic error message",
+      "RuntimeError: tensor sizes mismatch",
+      "RuntimeError: device mismatch"
+    ]
+  },
+  {
     "slug": "s3-putobject-503-slowdown-checkpoint-throttle",
     "title": "botocore ClientError 503 PutObject SlowDown S3 prefix request rate exceeded",
     "category": "Data Integrity",
@@ -2056,6 +3656,25 @@
     "severity": "medium",
     "signatures": [
       "SafetensorError: Error while deserializing header: HeaderTooLarge"
+    ]
+  },
+  {
+    "slug": "safetensors-load-error-1",
+    "title": "Safetensors Load Error",
+    "category": "Data Integrity",
+    "severity": "high",
+    "signatures": [
+      "OSError: file too short: model.safetensors",
+      "RuntimeError: invalid header in safetensors file"
+    ]
+  },
+  {
+    "slug": "sdc-gpu-loss-spike-divergence",
+    "title": "Silent Data Corruption from GPU Hardware Faults Causing Loss Spikes and Model Divergence",
+    "category": "Reliability",
+    "severity": "critical",
+    "signatures": [
+      "nvidia-smi reports zero correctable ECC errors yet computation results differ from replicated runs"
     ]
   },
   {
@@ -2077,12 +3696,30 @@
     ]
   },
   {
+    "slug": "silent-cascading-straggler",
+    "title": "Silent Cascading Straggler",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi shows normal status with no Xid errors"
+    ]
+  },
+  {
     "slug": "silent-data-corruption-tensor-core-gemm-bit-flip",
     "title": "tensor core GEMM calculation deviation silent data corruption bit flip",
     "category": "Data Integrity",
     "severity": "critical",
     "signatures": [
       "tensor core GEMM calculation deviation silent data corruption bit flip"
+    ]
+  },
+  {
+    "slug": "slurm-cgroup-limit",
+    "title": "SLURM Cgroup Limit",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "slurmstepd: error: cgroup out of memory"
     ]
   },
   {
@@ -2114,12 +3751,59 @@
     ]
   },
   {
+    "slug": "slurm-preemption-workflow-manager-crash",
+    "title": "Preempted Job Causes Workflow Manager Hard Failure",
+    "category": "Job Execution",
+    "severity": "high",
+    "signatures": [
+      "Workflow manager error: Job failed with exit code 15",
+      "slurmstepd: error: *** JOB <ID> ON <node> CANCELLED AT <time> DUE TO PREEMPTION ***"
+    ]
+  },
+  {
+    "slug": "slurm-time-limit",
+    "title": "SLURM Time Limit",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "slurmstepd: Job ... exceeded its time limit"
+    ]
+  },
+  {
     "slug": "slurmstepd-cancelled-due-to-oom-killer",
     "title": "slurmstepd: error: JOB CANCELLED DUE TO OOM-KILLER",
     "category": "Infrastructure",
     "severity": "high",
     "signatures": [
       "slurmstepd: error: JOB CANCELLED DUE TO OOM-KILLER"
+    ]
+  },
+  {
+    "slug": "straggler-thermal-single-gpu",
+    "title": "Persistent Straggler Rank from Single-GPU Thermal Throttling",
+    "category": "Performance",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi on that GPU: HW Thermal Slowdown Active, temperature 15-30C above fleet"
+    ]
+  },
+  {
+    "slug": "streaming-data-error",
+    "title": "Streaming Data Error",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "Connection reset by peer during data load"
+    ]
+  },
+  {
+    "slug": "tcp-port-exhaustion",
+    "title": "TCP Port Exhaustion",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "OSError: [Errno 99] Cannot assign requested address",
+      "NCCL WARN connect: Connection refused"
     ]
   },
   {
@@ -2134,12 +3818,73 @@
     ]
   },
   {
+    "slug": "tensor-views-memory-leak",
+    "title": "Tensor Views Memory Leak",
+    "category": "Memory",
+    "severity": "low",
+    "signatures": [
+      "torch.cuda.memory_allocated() shows large tensors"
+    ]
+  },
+  {
     "slug": "tensorrt-llm-kvcachemanager-available-blocks-exhausted",
     "title": "TensorRT-LLM KVCacheManager Available blocks exhausted",
     "category": "Infrastructure",
     "severity": "medium",
     "signatures": [
       "TensorRT-LLM KVCacheManager Available blocks exhausted"
+    ]
+  },
+  {
+    "slug": "tokenization-error",
+    "title": "Tokenization Error",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "ValueError: Tokenizer class mismatch",
+      "KeyError: token not in vocabulary"
+    ]
+  },
+  {
+    "slug": "tokenizer-pad-truncate",
+    "title": "Tokenizer Padding and Truncation Error",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "ValueError: sequence length exceeds maximum",
+      "RuntimeError: cannot pad to max length"
+    ]
+  },
+  {
+    "slug": "torch-compile-error",
+    "title": "PyTorch torch.compile Error",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Triton compilation failed",
+      "torch._dynamo.exc.BackendCompilerFailed"
+    ]
+  },
+  {
+    "slug": "torch-compile-memory",
+    "title": "torch.compile Memory",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "torch.compile causes OOM",
+      "Memory higher with torch.compile than eager mode",
+      "torch.compile recompiles on shape change"
+    ]
+  },
+  {
+    "slug": "torch-cuda-error",
+    "title": "PyTorch CUDA Error (Generic)",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA error: generic",
+      "RuntimeError: CUDA error: unknown error",
+      "RuntimeError: CUDA out of memory"
     ]
   },
   {
@@ -2161,6 +3906,17 @@
     ]
   },
   {
+    "slug": "torch-distributed-error",
+    "title": "PyTorch Distributed Error",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Distributed package doesn't have NCCL built in",
+      "RuntimeError: process group not initialized",
+      "torch.distributed.DistBackendError"
+    ]
+  },
+  {
     "slug": "torch-dynamo-backend-compiler-failed-inductor",
     "title": "torch._dynamo.exc.BackendCompilerFailed backend inductor LoweringException",
     "category": "Environment",
@@ -2176,6 +3932,38 @@
     "severity": "medium",
     "signatures": [
       "torch._dynamo.exc.RestartAnalysis Exceeded maximum graph break limit"
+    ]
+  },
+  {
+    "slug": "torch-hub-error",
+    "title": "PyTorch Hub Error",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: Error downloading model",
+      "torch.hub.load fails"
+    ]
+  },
+  {
+    "slug": "torch-jit-compile-error",
+    "title": "PyTorch JIT Compile Error",
+    "category": "Training Stability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Script compilation failed",
+      "RuntimeError: type hints mismatch",
+      "torch.jit.frontend.UnsupportedNodeError"
+    ]
+  },
+  {
+    "slug": "torch-load-failed",
+    "title": "PyTorch Load Failed / Unpickling Error",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "OSError: [Errno 2] No such file or directory: checkpoint.pt",
+      "RuntimeError: Error(s) in loading state_dict for Model:",
+      "KeyError: missing keys: optimizer state doesn't match model keys"
     ]
   },
   {
@@ -2197,12 +3985,53 @@
     ]
   },
   {
+    "slug": "torch-multiprocessing-error",
+    "title": "PyTorch Multiprocessing Error",
+    "category": "Data Pipeline",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: DataLoader worker (pid X) exited unexpectedly",
+      "RuntimeError: Cannot re-init Dataloader"
+    ]
+  },
+  {
+    "slug": "torch-not-compiled-with-cuda",
+    "title": "PyTorch Not Compiled With CUDA",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA is not available",
+      "torch.cuda.is_available() returns False",
+      "nvidia-smi shows GPUs but PyTorch can't access them"
+    ]
+  },
+  {
+    "slug": "torch-save-failed",
+    "title": "PyTorch Save Failed / Write Error",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "OSError: [Errno 28] No space left on device",
+      "RuntimeError: Unable to open file for writing",
+      "torch.save() raises OSError during checkpoint write"
+    ]
+  },
+  {
     "slug": "torchao-int8-calibration-observer-nan-error",
     "title": "torchao quantization CalibrationError observed activation tensor contains NaN during INT8 observer",
     "category": "Environment",
     "severity": "medium",
     "signatures": [
       "torchao quantization CalibrationError observed activation tensor contains NaN during INT8 observer"
+    ]
+  },
+  {
+    "slug": "torchdata-pipeline-error",
+    "title": "TorchData Pipeline Error",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: DataPipe error"
     ]
   },
   {
@@ -2221,6 +4050,44 @@
     "severity": "medium",
     "signatures": [
       "torch.distributed.elastic.rendezvous.api.RendezvousTimeoutError"
+    ]
+  },
+  {
+    "slug": "torchrun-childfailederror-triage",
+    "title": "Triaging torchrun ChildFailedError: the Wrapper Is Never the Root Cause",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "torch.distributed.elastic.multiprocessing.errors.ChildFailedError"
+    ]
+  },
+  {
+    "slug": "torchvision-error",
+    "title": "Torchvision Error",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: torchvision version mismatch",
+      "ValueError: PIL image not loaded",
+      "ImportError: cannot import from torchvision"
+    ]
+  },
+  {
+    "slug": "training-checkpoint-corruption-on-write",
+    "title": "Training Checkpoint Corruption on Write",
+    "category": "Reliability",
+    "severity": "critical",
+    "signatures": [
+      "UnpicklingError or OSError when loading checkpoint"
+    ]
+  },
+  {
+    "slug": "training-resume-failure",
+    "title": "Training Resume Failure",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Error(s) in loading state_dict"
     ]
   },
   {
@@ -2342,6 +4209,35 @@
     ]
   },
   {
+    "slug": "type-error",
+    "title": "Type Error (Python)",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "TypeError: unsupported operand type(s)",
+      "TypeError: object is not callable",
+      "TypeError: argument must be str not int"
+    ]
+  },
+  {
+    "slug": "ulimit-too-low",
+    "title": "Ulimit Too Low",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "OSError: [Errno 24] Too many open files"
+    ]
+  },
+  {
+    "slug": "unsloth-py313-anyio-cancel-scope-crash",
+    "title": "Unsloth Studio Streaming Chat Crashes on Python 3.13 (anyio cancel scope)",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Attempted to exit cancel scope in a different task than it was entered in"
+    ]
+  },
+  {
     "slug": "uvm-unified-memory-page-fault-thrashing-xid-31",
     "title": "UVM fault excessive page migrations between host RAM and GPU HBM cudaMallocManaged",
     "category": "Memory",
@@ -2349,6 +4245,28 @@
     "xid": 31,
     "signatures": [
       "UVM fault excessive page migrations between host RAM and GPU HBM cudaMallocManaged"
+    ]
+  },
+  {
+    "slug": "value-error",
+    "title": "Value Error (Python)",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "ValueError: invalid value",
+      "ValueError: setting array element with sequence",
+      "ValueError: too many values to unpack"
+    ]
+  },
+  {
+    "slug": "version-mismatch",
+    "title": "PyTorch / CUDA / cuDNN Version Mismatch",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Detected that PyTorch and CUDA are not compatible",
+      "PyTorch reports CUDA error at import",
+      "torch.cuda.is_available() returns False"
     ]
   },
   {
@@ -2474,6 +4392,24 @@
     ]
   },
   {
+    "slug": "webdataset-error",
+    "title": "WebDataset Error",
+    "category": "Data Pipeline",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: WebDataset shard not found"
+    ]
+  },
+  {
+    "slug": "webdataset-tar-corruption",
+    "title": "WebDataset TAR Corruption",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "Connection reset by peer during download"
+    ]
+  },
+  {
     "slug": "webdataset-tarerror-unexpected-end-of-archive",
     "title": "webdataset TarError Unexpected end of archive while reading shard",
     "category": "Data Integrity",
@@ -2581,6 +4517,16 @@
       "dmesg: GPU has fallen off the bus on GPU X",
       "nvidia-smi returns 'No devices found' for the affected GPU",
       "nvidia-smi shows the GPU as unavailable or unreachable"
+    ]
+  },
+  {
+    "slug": "zombie-process-1",
+    "title": "Zombie GPU Process / Orphaned Job",
+    "category": "Reliability",
+    "severity": "critical",
+    "signatures": [
+      "nvidia-smi shows CUDA processes that won't die",
+      "nvidia-smi shows GPU memory used but process is invisible"
     ]
   }
 ]

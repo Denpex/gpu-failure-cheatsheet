@@ -29,7 +29,7 @@ does not fix the run.
 ## Quick triage
 
 ```bash
-# Match a crash log against 268 known failure signatures. No install, no network.
+# Match a crash log against 471 known failure signatures. No install, no network.
 curl -sO https://raw.githubusercontent.com/Denpex/gpu-failure-cheatsheet/main/triage.mjs
 curl -sO https://raw.githubusercontent.com/Denpex/gpu-failure-cheatsheet/main/signatures.json
 node triage.mjs /path/to/training.log
@@ -41,7 +41,7 @@ the bus and two other ranks then timed out waiting for it:
 ```
 $ node triage.mjs sample.log
 
-Matched 5 distinct findings across 16 known signatures:
+Matched 5 distinct findings across 17 known signatures:
 
   [hardware] GPU Fallen Off the Bus (Xid 79)
     category  Hardware, severity critical
@@ -63,6 +63,35 @@ twice, so ranking by frequency would have sent you to investigate the victims.
 Note also the `also` line. Several entries can describe the same underlying failure,
 so results are grouped by finding rather than by page. You get one line per thing that
 is actually wrong, and the count tells you how many write-ups exist behind it.
+
+### Machine-readable output
+
+```bash
+node triage.mjs training.log --json
+```
+
+```json
+{
+  "matchedSignatures": 17,
+  "distinctFindings": 5,
+  "findings": [
+    {
+      "title": "GPU Fallen Off the Bus (Xid 79)",
+      "slug": "gpu-fallen-off-bus-xid79",
+      "category": "Hardware",
+      "severity": "critical",
+      "hardware": true,
+      "xid": 79,
+      "matched": ["Xid 79 reported in this log"],
+      "alternateWriteUps": 4,
+      "details": "https://denpex.com/failures/gpu-fallen-off-bus-xid79"
+    }
+  ]
+}
+```
+
+Exit codes: `0` a match was found, `1` no match, `2` usage or read error. So
+`triage.mjs run.log --json > findings.json` is safe in a CI step or a post-mortem hook.
 
 Reading a multi-rank log by hand? Start with the earliest anomalous event, not the
 most frequent one:
@@ -346,7 +375,7 @@ https://denpex.com/solutions/best-tools-gpu-cluster-debugging
 
 ## Full encyclopedia
 
-268 failure modes with a verbatim error signature, a root cause, a fix
+471 failure modes with a verbatim error signature, a root cause, a fix
 and citations to upstream vendor documentation or issue trackers:
 
 https://denpex.com/failures

@@ -1,0 +1,48 @@
+name: triage
+
+# Runs the exact commands the README tells people to run. If this is red, the
+# instructions in the README are wrong, which is the only failure a visitor cares about.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: signatures.json is valid JSON and non-empty
+        run: |
+          node -e "
+            const r = JSON.parse(require('fs').readFileSync('signatures.json', 'utf8'));
+            if (!Array.isArray(r) || r.length === 0) throw new Error('signatures.json is empty');
+            for (const e of r) {
+              if (!e.slug || !e.title) throw new Error('record missing slug or title: ' + JSON.stringify(e).slice(0, 120));
+              const hasSig = Array.isArray(e.signatures) && e.signatures.length > 0;
+              if (!hasSig && typeof e.xid !== 'number') throw new Error(e.slug + ' has neither a signature nor an Xid');
+            }
+            console.log('signatures.json OK: ' + r.length + ' records');
+          "
+
+      - name: triage matches the bundled sample
+        run: node triage.mjs sample.log
+
+      - name: --json output is parseable
+        run: |
+          node triage.mjs sample.log --json > out.json
+          node -e "
+            const o = JSON.parse(require('fs').readFileSync('out.json', 'utf8'));
+            if (!o.findings || o.findings.length === 0) throw new Error('no findings in JSON output');
+            if (!o.findings.some((f) => f.xid === 79)) throw new Error('sample.log contains Xid 79 but it was not reported');
+            console.log('JSON OK: ' + o.distinctFindings + ' findings across ' + o.matchedSignatures + ' signatures');
+          "
+
+      - name: stdin path works
+        run: cat sample.log | node triage.mjs -

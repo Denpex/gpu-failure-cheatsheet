@@ -19,11 +19,18 @@ import { dirname, join } from 'node:path';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SITE = 'https://denpex.com';
 
+// --json makes this embeddable in other people's tooling, which is how a reference
+// spreads without anyone promoting it. Parsed before the file argument so that
+// `triage.mjs --json run.log` and `triage.mjs run.log --json` both work; a flag that
+// only works in one position is a flag people give up on.
+const ARGS = process.argv.slice(2);
+const JSON_OUT = ARGS.includes('--json');
+const FILE_ARG = ARGS.find((a) => !a.startsWith('--'));
+
 function readInput() {
-  const arg = process.argv[2];
-  if (arg && arg !== '-') return readFileSync(arg, 'utf8');
+  if (FILE_ARG && FILE_ARG !== '-') return readFileSync(FILE_ARG, 'utf8');
   if (process.stdin.isTTY) {
-    console.error('usage: node triage.mjs <logfile>   (or pipe a log on stdin)');
+    console.error('usage: node triage.mjs <logfile> [--json]   (or pipe a log on stdin)');
     process.exit(2);
   }
   return readFileSync(0, 'utf8');
@@ -108,9 +115,7 @@ hits.sort((a, b) => (
 /**
  * COLLAPSE RECORDS THAT REPORT THE SAME FINDING.
  *
- * The corpus carries five separate write-ups of Xid 79 (gpu-fallen-off-bus-xid79,
- * nccl-async-xid-79-gpu-fail, nvidia-xid-79-gpu-fallen-off-bus,
- * nvidia-xid-79-gpu-fallen-off-the-bus, xid-error-79). They are different pages with
+ * The corpus carries five separate write-ups of Xid 79. They are different pages with
  * different sourcing, which is fine on the site, but at a terminal they all match the
  * same line and score identically, so the top 8 became five restatements of one fact
  * and three real findings. On the bundled sample.log that is exactly what happened.
@@ -121,8 +126,7 @@ hits.sort((a, b) => (
  *
  * So group by the FINDING rather than the page. An Xid code is the finding; for
  * everything else the strongest matched signature is. The best-scoring record in each
- * group represents it and the rest are reported as a count, so nothing is hidden and
- * the reader can still tell there is more than one write-up.
+ * group represents it and the rest are reported as a count, so nothing is hidden.
  */
 function findingKey(hit) {
   if (hit.xidHit) return 'xid:' + hit.record.xid;
@@ -139,6 +143,28 @@ for (const hit of hits) {
 }
 const findings = [...groups.values()];
 
+// Machine-readable output, so this can be a step in someone else's pipeline rather
+// than only a thing a human reads. Emitted before the no-match early exit so a clean
+// log still produces valid JSON rather than prose on stdout.
+if (JSON_OUT) {
+  console.log(JSON.stringify({
+    matchedSignatures: hits.length,
+    distinctFindings: findings.length,
+    findings: findings.map((f) => ({
+      title: f.record.title,
+      slug: f.record.slug,
+      category: f.record.category,
+      severity: f.record.severity,
+      hardware: f.xidHit,
+      ...(typeof f.record.xid === 'number' ? { xid: f.record.xid } : {}),
+      matched: f.matched,
+      alternateWriteUps: f.alternates,
+      details: SITE + '/failures/' + f.record.slug,
+    })),
+  }, null, 2));
+  process.exit(hits.length > 0 ? 0 : 1);
+}
+
 if (hits.length === 0) {
   console.log('No known signature matched.');
   console.log('');
@@ -154,7 +180,7 @@ const SHOWN = 8;
 const shown = findings.slice(0, SHOWN);
 
 // Report both numbers. "5 findings across 16 matched signatures" is the honest summary:
-// it tells you how much collapsing happened without making you scroll through it.
+// it says how much collapsing happened without making you scroll through it.
 const summary = findings.length === hits.length
   ? 'Matched ' + hits.length + ' known failure' + (hits.length === 1 ? '' : 's')
   : 'Matched ' + findings.length + ' distinct finding' + (findings.length === 1 ? '' : 's')
