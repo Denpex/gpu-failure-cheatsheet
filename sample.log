@@ -1,0 +1,4 @@
+[2026-09-03 04:12:01] rank 233: NVRM: Xid (PCI:0000:8a:00): 79, GPU has fallen off the bus.
+[2026-09-03 04:12:44] rank 12: [E ProcessGroupNCCL.cpp:828] Watchdog caught collective operation timeout WorkNCCL AllGather
+[2026-09-03 04:12:44] rank 87: [E ProcessGroupNCCL.cpp:828] Watchdog caught collective operation timeout WorkNCCL AllGather
+[2026-09-03 04:13:02] rank 0: RuntimeError: NCCL communicator was aborted

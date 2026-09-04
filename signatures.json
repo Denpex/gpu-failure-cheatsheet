@@ -1,0 +1,2586 @@
+[
+  {
+    "slug": "accelerate-cannot-dynamically-bsz-error",
+    "title": "accelerate CannotDynamicallyBSZError Batch size must stay constant across gradient accumulation",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "accelerate CannotDynamicallyBSZError Batch size must stay constant across gradient accumulation"
+    ]
+  },
+  {
+    "slug": "adamw-grad-scaler-zero-division-error",
+    "title": "ZeroDivisionError float division by zero GradScaler.step all gradients unscaled to zero or Inf",
+    "category": "Training Stability",
+    "severity": "medium",
+    "signatures": [
+      "ZeroDivisionError float division by zero GradScaler.step all gradients unscaled to zero or Inf"
+    ]
+  },
+  {
+    "slug": "autoawq-invalid-configuration-argument-gemm",
+    "title": "CUDA error: invalid configuration argument awq_gemm_kernel grid block dimensions exceed SM limit",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "CUDA error: invalid configuration argument awq_gemm_kernel grid block dimensions exceed SM limit"
+    ]
+  },
+  {
+    "slug": "autocast-fp16-nan-inf-loss-flash-attention",
+    "title": "NaN Inf loss detected in flash_attn_varlen_func with autocast fp16",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "NaN Inf loss detected in flash_attn_varlen_func with autocast fp16"
+    ]
+  },
+  {
+    "slug": "autogptq-exllama-v2-act-order-group-size-incompatible",
+    "title": "ExLlamaV2 kernels do not support act-order desc_act with group_size",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "ExLlamaV2 kernels do not support act-order desc_act with group_size"
+    ]
+  },
+  {
+    "slug": "aws-efa-cq-poll-transport-endpoint-not-connected",
+    "title": "libfabric efa_cq_poll_ibv failed to poll cq Transport endpoint is not connected",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "libfabric efa_cq_poll_ibv failed to poll cq Transport endpoint is not connected"
+    ]
+  },
+  {
+    "slug": "aws-neuronx-runtime-dma-buffer-overflow",
+    "title": "nrt_enqueue_dma failed device ring buffer full Neuron DMA channel saturated",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "nrt_enqueue_dma failed device ring buffer full Neuron DMA channel saturated"
+    ]
+  },
+  {
+    "slug": "aws-trainium-neuron-compiler-timeout-error",
+    "title": "NeuronCompilerError graph compilation timed out HloModule optimization Trainium",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "NeuronCompilerError graph compilation timed out HloModule optimization Trainium"
+    ]
+  },
+  {
+    "slug": "azure-ndv5-roce-mtu-mismatch-nccl-hang",
+    "title": "NCCL WARN RoCE MTU mismatch detected local MTU != remote MTU mlx5",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN RoCE MTU mismatch detected local MTU != remote MTU mlx5"
+    ]
+  },
+  {
+    "slug": "bitsandbytes-cuda-setup-failed-libbitsandbytes-missing",
+    "title": "bitsandbytes was compiled without GPU support libbitsandbytes_cuda.so could not be loaded",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "bitsandbytes was compiled without GPU support libbitsandbytes_cuda.so could not be loaded"
+    ]
+  },
+  {
+    "slug": "bitsandbytes-matmul-4bit-no-kernel-image-available",
+    "title": "bitsandbytes matmul_4bit CUDA error: no kernel image is available for execution on the device",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "bitsandbytes matmul_4bit CUDA error: no kernel image is available for execution on the device"
+    ]
+  },
+  {
+    "slug": "blackwell-b200-dual-die-thermal-delta-throttle",
+    "title": "die-to-die thermal delta between primary die and secondary die emergency throttle",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "die-to-die thermal delta between primary die and secondary die emergency throttle"
+    ]
+  },
+  {
+    "slug": "connection-timeout",
+    "title": "Connection Timeout",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "Connection reset by peer"
+    ]
+  },
+  {
+    "slug": "cpu-offloading-overhead",
+    "title": "CPU Offloading Overhead",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "[INFO] [config.py:1006:print] offload_optimizer ............ {'device': 'cpu', 'nvme_path': None, 'buffer_count': 4, 'pin_memory': True, 'pipeline': False, 'ratio': 1.0, 'fast_init': False}",
+      "[INFO] [config.py:1006:print] offload_param ................ {'device': 'cpu', 'nvme_path': None, 'buffer_count': 5, 'buffer_size': 100000000, 'max_in_cpu': 1000000000, 'pin_memory': True}",
+      "[INFO] [utils.py:781:see_memory_usage] MA 12.44 GB         Max_MA 21.07 GB         CA 24.00 GB         Max_CA 24 GB"
+    ]
+  },
+  {
+    "slug": "crusoe-nixl-firmware-page-oom",
+    "title": "NIXL Firmware Page Registration Fan-Out Triggers Host OOM Kills on HGX H200 and B200",
+    "category": "Reliability",
+    "severity": "critical",
+    "signatures": [
+      "Kernel dmesg: \"Out of memory: Killed process <PID> (python)\" with no GPU-side errors",
+      "/proc/meminfo shows MemAvailable = 0 with buffers/cache fully reclaimed during NIXL-heavy workloads",
+      "MemAvailable in /proc/meminfo drops to zero despite adequate host RAM capacity"
+    ]
+  },
+  {
+    "slug": "cuda-graph-capture-operation-not-permitted-sync",
+    "title": "CUDA error: operation not permitted when stream is capturing",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "CUDA error: operation not permitted when stream is capturing"
+    ]
+  },
+  {
+    "slug": "cuda-graph-replay-invalidated-memory-buffer",
+    "title": "CUDA graph replay detected invalidated memory buffer",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "CUDA graph replay detected invalidated memory buffer"
+    ]
+  },
+  {
+    "slug": "cuda-host-alloc-pinned-memory-ulimit-error",
+    "title": "cudaHostAlloc out of memory pinned memory check ulimit -l max locked memory",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "cudaHostAlloc out of memory pinned memory check ulimit -l max locked memory"
+    ]
+  },
+  {
+    "slug": "cuda-ipc-get-mem-handle-out-of-memory",
+    "title": "cudaIpcGetMemHandle returned error out of memory",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "cudaIpcGetMemHandle returned error out of memory"
+    ]
+  },
+  {
+    "slug": "cuda-launch-failure-illegal-instruction-sm90a",
+    "title": "cudaErrorLaunchFailure an illegal instruction was encountered sm90a",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "cudaErrorLaunchFailure an illegal instruction was encountered sm90a"
+    ]
+  },
+  {
+    "slug": "cuda-oom",
+    "title": "CUDA Out of Memory",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA OOM",
+      "torch.cuda.OutOfMemoryError",
+      "CUDA error: out of memory"
+    ]
+  },
+  {
+    "slug": "cuda-uncorrectable-ecc",
+    "title": "CUDA uncorrectable ECC error on an NVIDIA GPU",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "NVRM: Xid (PCI:0000:01:00): 95, Uncontained"
+    ]
+  },
+  {
+    "slug": "cudnn-status-not-supported-convolution-forward",
+    "title": "cuDNN error: CUDNN_STATUS_NOT_SUPPORTED cudnnConvolutionForward",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "cuDNN error: CUDNN_STATUS_NOT_SUPPORTED cudnnConvolutionForward"
+    ]
+  },
+  {
+    "slug": "cufile-gpudirect-driver-not-initialized-5002",
+    "title": "cuFileRead failed with error 5002 CU_FILE_DRIVER_NOT_INITIALIZED",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "cuFileRead failed with error 5002 CU_FILE_DRIVER_NOT_INITIALIZED"
+    ]
+  },
+  {
+    "slug": "datacenter-cdu-liquid-cooling-flow-rate-alarm",
+    "title": "Coolant Distribution Unit CDU secondary loop flow rate low immediate system power-off",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "Coolant Distribution Unit CDU secondary loop flow rate low immediate system power-off"
+    ]
+  },
+  {
+    "slug": "dataloader-custom-cuda-voxelize-segfault",
+    "title": "Segmentation fault in custom CUDA kernel .so during backprop",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "Segmentation fault in custom CUDA kernel .so during backprop"
+    ]
+  },
+  {
+    "slug": "dataloader-worker-killed-bus-error-shm",
+    "title": "DataLoader worker is killed by signal: Bus error shared memory exhausted",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "DataLoader worker is killed by signal: Bus error shared memory exhausted"
+    ]
+  },
+  {
+    "slug": "dcgm-nvlink-crc-flit-error-degraded",
+    "title": "DCGM_FI_DEV_NVLINK_CRC_FLIT_ERROR counter incremented link degraded",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "DCGM_FI_DEV_NVLINK_CRC_FLIT_ERROR counter incremented link degraded"
+    ]
+  },
+  {
+    "slug": "dcgm-row-remapper-exhausted-hbm3-rma",
+    "title": "DCGM_FI_DEV_ROW_REMAP_FAILURE pending row remap failed bank row reserve exhausted",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "DCGM_FI_DEV_ROW_REMAP_FAILURE pending row remap failed bank row reserve exhausted"
+    ]
+  },
+  {
+    "slug": "ddp-reducer-expect-autograd-hooks-assert",
+    "title": "DistributedDataParallel raises an internal reducer assertion when a backward pass arrives unexpectedly",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "[rank0]: RuntimeError: expect_autograd_hooks_ INTERNAL ASSERT FAILED at \"../torch/csrc/distributed/c10d/reducer.cpp\":1603, please report a bug to PyTorch.",
+      "[rank0]: No no_sync() context - works without error"
+    ]
+  },
+  {
+    "slug": "deepgemm-unknown-sf-transformation-on-unsupported-architecture",
+    "title": "DeepGEMM rejects FP8 block-scaled weights with Unknown SF transformation on an unsupported architecture",
+    "category": "Inference",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Assertion error (/workspace/.deps/deepgemm-src/csrc/apis/layout.hpp:60): Unknown SF transformation",
+      "compressed_tensors_w8a8_fp8.py:169  process_weights_after_loading",
+      "-> kernels/linear/scaled_mm/deep_gemm.py:96  process_weights_after_loading"
+    ]
+  },
+  {
+    "slug": "deepspeed-chat-actor-critic-zero3-deadlock",
+    "title": "DeepSpeed PPO Actor forward pass deadlocked waiting for Critic ZeRO-3 parameter gather",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "DeepSpeed PPO Actor forward pass deadlocked waiting for Critic ZeRO-3 parameter gather"
+    ]
+  },
+  {
+    "slug": "deepspeed-checkpoint-engine-hang",
+    "title": "DeepSpeed DecoupledCheckpointEngine Infinite Hang",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "nvidia-smi shows 0% GPU utilization on all ranks"
+    ]
+  },
+  {
+    "slug": "deepspeed-fp16-overflow-inf-nan-loss-scale-halved",
+    "title": "Overflow detected during fp16 gradient unscaling. Skipping step, loss scale halved",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "Overflow detected during fp16 gradient unscaling. Skipping step, loss scale halved"
+    ]
+  },
+  {
+    "slug": "deepspeed-host-ram-oom-offload",
+    "title": "DeepSpeed ZeRO Offload Host-RAM OOM (SIGKILL -9)",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "exits with return code = -9 (SIGKILL)"
+    ]
+  },
+  {
+    "slug": "deepspeed-nvme-swap-space-exhausted",
+    "title": "DeepSpeed ZeRO-Offload NVMe aio_write failed: No space left on device",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "DeepSpeed ZeRO-Offload NVMe aio_write failed: No space left on device"
+    ]
+  },
+  {
+    "slug": "deepspeed-oom",
+    "title": "DeepSpeed Out of Memory",
+    "category": "Distributed Training",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA out of memory when ZeRO partitions optimizer states",
+      "CUDA out of memory during DeepSpeed engine initialization",
+      "Memory usage in nvidia-smi shows near-total utilization despite ZeRO being enabled"
+    ]
+  },
+  {
+    "slug": "deepspeed-zero-offload-pin-memory-oom-2",
+    "title": "Host RAM Exhaustion via ZeRO Offload Pinned Memory",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "There are no CUDA Out of Memory errors; VRAM usage is well within limits.",
+      "Exit code 137",
+      "kernel: Out of memory: Killed process"
+    ]
+  },
+  {
+    "slug": "deepspeed-zero2-reduce-scatter-bucket-exhausted",
+    "title": "DeepSpeed ZeRO-2 tensor bucket buffer exhausted during reduce_scatter",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "DeepSpeed ZeRO-2 tensor bucket buffer exhausted during reduce_scatter"
+    ]
+  },
+  {
+    "slug": "deepspeed-zero3-checkpoint-gather-oom-1",
+    "title": "Rank 0 OOM During ZeRO-3 Checkpoint Save",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA out of memory. Tried to allocate..."
+    ]
+  },
+  {
+    "slug": "deepspeed-zero3-nccl-timeout-drop-last-4",
+    "title": "NCCL Hang on AllGather due to Asymmetric Data Loading",
+    "category": "Network",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: NCCL communicator was aborted",
+      "Watchdog caught collective operation timeout: WorkNCCL(SeqNum=...)"
+    ]
+  },
+  {
+    "slug": "deepspeed-zero3-param-status-exception-partitioned",
+    "title": "ZeROStage3ParamStatusException: Parameter in Partitioned state, expected Available",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "ZeROStage3ParamStatusException: Parameter in Partitioned state, expected Available"
+    ]
+  },
+  {
+    "slug": "deepspeed-zero3-prefetch-oom-5",
+    "title": "Forward Pass OOM due to Excessive Parameter Prefetching",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "CUDA out of memory."
+    ]
+  },
+  {
+    "slug": "diffusers-vae-tiling-decode-out-of-memory",
+    "title": "CUDA out of memory during AutoencoderKL tiling decode intermediate latents",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "CUDA out of memory during AutoencoderKL tiling decode intermediate latents"
+    ]
+  },
+  {
+    "slug": "dkms-out-of-tree-module-build-fails-after-kernel-upgrade",
+    "title": "An out-of-tree GPU or storage kernel module stops building after a kernel upgrade",
+    "category": "Infrastructure",
+    "severity": "critical",
+    "signatures": [
+      "/var/lib/dkms/beegfs/8.1.0/build/build/../source/common/storage/RdmaInfo.c:58:13: error: implicit declaration of function 'ib_peer_memory_client_register'",
+      "modprobe: ERROR: could not insert 'nvidia_peermem': Invalid argument",
+      "dmesg: nvidia_peermem: Unknown symbol ib_register_peer_memory_client"
+    ]
+  },
+  {
+    "slug": "docker-nvidia-container-cli-initialization-error",
+    "title": "could not select device driver with capabilities gpu nvidia-container-cli initialization error",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "could not select device driver with capabilities gpu nvidia-container-cli initialization error"
+    ]
+  },
+  {
+    "slug": "dpo-trainer-logits-shape-vocab-mismatch",
+    "title": "Reference model logits shape does not match policy logits shape vocab mismatch",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "Reference model logits shape does not match policy logits shape vocab mismatch"
+    ]
+  },
+  {
+    "slug": "dpx-fail-0443-asymmetric-pt2-compilation-collective-desync",
+    "title": "Asymmetric PT2 Compilation Collective Desync",
+    "category": "Distributed Training",
+    "severity": "critical",
+    "signatures": [
+      "Watchdog caught collective operation timeout: WorkNCCL"
+    ]
+  },
+  {
+    "slug": "dpx-fail-0444-accelerate-deepspeed-watchdog-timeout-mismatch",
+    "title": "Accelerate-DeepSpeed Watchdog Timeout Mismatch",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "dpx-fail-0448-uncorrectable-double-bit-ecc-error",
+    "title": "Uncorrectable Double Bit ECC Error",
+    "category": "Hardware",
+    "severity": "fatal",
+    "signatures": [
+      "Cuda failure: uncorrectable ECC error encountered",
+      "nvidia-smi -q shows increments in the 'DRAM Uncorrectable' counters."
+    ]
+  },
+  {
+    "slug": "dpx-fail-0455-moe-activation-recomputation-export-oom",
+    "title": "MoE Activation Recomputation Export OOM",
+    "category": "Model",
+    "severity": "medium",
+    "signatures": [
+      "CUDA out of memory"
+    ]
+  },
+  {
+    "slug": "enroot-pyxis-squashfs-import-disk-quota-exceeded",
+    "title": "pyxis enroot import failed to extract squashfs image disk quota exceeded",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "pyxis enroot import failed to extract squashfs image disk quota exceeded"
+    ]
+  },
+  {
+    "slug": "env-thermal-ecc-throttling",
+    "title": "Thermal-Induced ECC Throttling causing NCCL timeouts",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN Call to system function posix_memalign failed",
+      "NCCL WARN Timeout waiting for data",
+      "nvidia-smi shows the memory temperature (not just GPU core temp) hovering near or above 95°C."
+    ]
+  },
+  {
+    "slug": "expert-parallel-dispatch-combine-collective-timeout",
+    "title": "Mixture-of-experts dispatch and combine collectives time out on large NVLink domains",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "File \".../bench/ep_harness.py\", line 248, in sample",
+      "torch.cuda.synchronize()",
+      "torch.AcceleratorError: CUDA error: unspecified launch failure"
+    ]
+  },
+  {
+    "slug": "faiss-gpu-index-out-of-memory-allocation",
+    "title": "faiss StandardGpuResourcesImpl allocMemory CUDA error out of memory",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "faiss StandardGpuResourcesImpl allocMemory CUDA error out of memory"
+    ]
+  },
+  {
+    "slug": "flash-attention-3-fp8-nan-matrix-scale-overflow",
+    "title": "flash_attn_func produced all NaN values scale factor reciprocal overflowed FP8 E4M3 range",
+    "category": "Training Stability",
+    "severity": "medium",
+    "signatures": [
+      "flash_attn_func produced all NaN values scale factor reciprocal overflowed FP8 E4M3 range"
+    ]
+  },
+  {
+    "slug": "flashinfer-cuda-illegal-address-prefill",
+    "title": "flashinfer CUDA kernel launch failure cudaErrorIllegalAddress paged_prefill",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "flashinfer CUDA kernel launch failure cudaErrorIllegalAddress paged_prefill"
+    ]
+  },
+  {
+    "slug": "fp8-gemm-scaled-mm-compute-capability-mismatch",
+    "title": "FP8 GEMM torch._scaled_mm only supported on CUDA capability >= 8.9",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "FP8 GEMM torch._scaled_mm only supported on CUDA capability >= 8.9"
+    ]
+  },
+  {
+    "slug": "fsdp-all-gather-timeout-1",
+    "title": "FSDP All-Gather Timeout",
+    "category": "Distributed Training",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: AllGather timed out waiting for work on rank X"
+    ]
+  },
+  {
+    "slug": "fsdp-auto-wrap-policy-none-with-activation-checkpointing",
+    "title": "FSDP preparation fails because activation checkpointing calls a wrapping policy that was never set",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "TypeError: 'NoneType' object is not callable",
+      "File \".../accelerate/accelerator.py\", in _prepare_fsdp2",
+      "File \".../accelerate/utils/fsdp_utils.py\", in fsdp2_apply_ac"
+    ]
+  },
+  {
+    "slug": "fsdp-cpu-offload-composition-failure",
+    "title": "FSDP fails when composed with CPU parameter offloading",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "File \".../megatron/core/optimizer/cpu_offloading/hybrid_optimizer.py\", line 188, in _init_sub_optimizers",
+      ") = self._get_sub_optimizer_param_groups(self.offload_fraction)",
+      "param = param.detach().clone().cpu().pin_memory()"
+    ]
+  },
+  {
+    "slug": "fsdp-reduce-scatter-backward-timeout",
+    "title": "FSDP reduce_scatter backward hook timed out waiting for gradient sync",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "FSDP reduce_scatter backward hook timed out waiting for gradient sync"
+    ]
+  },
+  {
+    "slug": "fsdp-unshard-forward-oom",
+    "title": "FSDP Failed to allocate unpartitioned full weights during forward pre-hook",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "FSDP Failed to allocate unpartitioned full weights during forward pre-hook"
+    ]
+  },
+  {
+    "slug": "fsdp2-tied-weights-keyerror-during-prepare",
+    "title": "FSDP2 raises a KeyError on a tied weight while sharding the model",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "KeyError: 'lm_head.weight'",
+      "File \".../accelerate/accelerator.py\", in _prepare_fsdp2",
+      "mapping = {p: new_named_params[n] for n, p in old_named_params.items()}"
+    ]
+  },
+  {
+    "slug": "gdrcopy-pin-buffer-failed-bar1-aperture",
+    "title": "gdrcopy gdr_pin_buffer failed GPU virtual address is not mapped to BAR1 aperture",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "gdrcopy gdr_pin_buffer failed GPU virtual address is not mapped to BAR1 aperture"
+    ]
+  },
+  {
+    "slug": "gguf-llama-model-load-unknown-tensor-type",
+    "title": "llama_model_load: error loading model: unknown tensor type unsupported GGUF version",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "llama_model_load: error loading model: unknown tensor type unsupported GGUF version"
+    ]
+  },
+  {
+    "slug": "gh200-nvlink-c2c-cache-coherency-fault",
+    "title": "NVLink-C2C fatal link error cache coherency check failed Grace CPU Hopper GPU",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "NVLink-C2C fatal link error cache coherency check failed Grace CPU Hopper GPU"
+    ]
+  },
+  {
+    "slug": "gloo-connection-refused-port-29500-rendezvous",
+    "title": "Gloo Connection refused to host 29500 during initial rendezvous",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "Gloo Connection refused to host 29500 during initial rendezvous"
+    ]
+  },
+  {
+    "slug": "google-tpu-ici-interconnect-link-down-mesh-error",
+    "title": "TPU Inter-Chip Interconnect ICI link error mesh coordinate link state DOWN",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "TPU Inter-Chip Interconnect ICI link error mesh coordinate link state DOWN"
+    ]
+  },
+  {
+    "slug": "gpu-ecc-error-rate-high",
+    "title": "High ECC Error Rate Detection",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "dmesg: nvidia-nvme: Corrected ECC errors detected on GPU X",
+      "Memory errors detected in dmesg",
+      "nvidia-smi -q -d ECC shows non-zero volatile counts"
+    ]
+  },
+  {
+    "slug": "gpu-fallen-off-bus-xid79",
+    "title": "GPU Fallen Off the Bus (Xid 79)",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 79,
+    "signatures": [
+      "Xid 79: GPU has fallen off the bus",
+      "Xid 79 in the kernel log",
+      "nvidia-smi: GPU is lost / not listed"
+    ]
+  },
+  {
+    "slug": "gpu-xid-ecc",
+    "title": "GPU Uncorrectable ECC Memory Error (Xid 48/94/95)",
+    "category": "GPU Memory",
+    "severity": "critical",
+    "xid": 48,
+    "signatures": [
+      "dmesg shows Xid 48, 94, or 95 with ECC error context",
+      "Xid 48, 94, or 95 logged to dmesg",
+      "nvidia-smi -q -d ECC shows non-zero Aggregate Uncorrectable errors"
+    ]
+  },
+  {
+    "slug": "gradient-norm-spike-transient-dram-parity-flip",
+    "title": "sudden gradient norm spike without learning rate change transient DRAM parity error",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "sudden gradient norm spike without learning rate change transient DRAM parity error"
+    ]
+  },
+  {
+    "slug": "gsp-rpc-timeout-xid119",
+    "title": "GSP RPC Timeout (Xid 119)",
+    "category": "Hardware",
+    "severity": "high",
+    "xid": 119,
+    "signatures": [
+      "Xid 119 in dmesg (GSP RPC timeout)",
+      "Xid 119 appears in the kernel log",
+      "nvidia-smi hangs or omits the GPU"
+    ]
+  },
+  {
+    "slug": "habana-gaudi-synapseai-hcl-timeout-allreduce",
+    "title": "habana synapseai HCLError HCL_TIMEOUT waiting for AllReduce on Gaudi OAM module",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "habana synapseai HCLError HCL_TIMEOUT waiting for AllReduce on Gaudi OAM module"
+    ]
+  },
+  {
+    "slug": "hardware-ecc-xid-48-uncorrectable",
+    "title": "Xid 48 Double-Bit ECC Error in HBM",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 48,
+    "signatures": [
+      "RuntimeError: CUDA error: uncorrectable ECC error encountered",
+      "nvidia-smi shows the GPU in an error state or processes fail to attach to it."
+    ]
+  },
+  {
+    "slug": "hardware-ecc-xid-63-storm",
+    "title": "Xid 63 Page Retirement Storm causing severe throttling",
+    "category": "Hardware",
+    "severity": "high",
+    "xid": 63,
+    "signatures": [
+      "System logs (dmesg) are flooded with hundreds of Xid 63 messages.",
+      "NCCL WARN Timeout waiting for data"
+    ]
+  },
+  {
+    "slug": "hardware-ecc-xid-64-inforom",
+    "title": "Xid 64 InfoROM Page Retirement Failure",
+    "category": "Hardware",
+    "severity": "high",
+    "xid": 64,
+    "signatures": [
+      "CUDA error: all CUDA-capable devices are busy or unavailable",
+      "The GPU disappears from nvidia-smi or reports an ERR state."
+    ]
+  },
+  {
+    "slug": "host-oom-dataloader-rss-growth",
+    "title": "Host RAM OOM-Kill of DataLoader Workers Misread as GPU OOM",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "no torch.cuda.OutOfMemoryError anywhere",
+      "kernel: Out of memory: Killed process (python3) with huge anon-rss"
+    ]
+  },
+  {
+    "slug": "host-oom-killed",
+    "title": "Host OOM Killed",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "Killed process in dmesg: Out of memory: Killed process",
+      "dmesg shows OOM killer messages"
+    ]
+  },
+  {
+    "slug": "huggingface-bloom-weekly-gpu-hardware-failure",
+    "title": "1-2 GPU Hardware Failures Per Week During BLOOM 176B Training on 384 A100 GPUs",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "XID 79 (GPU fallen off bus) or XID 48 (double bit ECC error) in dmesg",
+      "nvidia-smi shows the affected GPU as ERR! with non-zero retired pages count"
+    ]
+  },
+  {
+    "slug": "huggingface-tokenizers-fork-parallelism-deadlock",
+    "title": "The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks"
+    ]
+  },
+  {
+    "slug": "inductor-cuda-graph-memory-pool-fragmentation",
+    "title": "CUDA out of memory during Inductor CUDA graph execution allocator private memory pool fragmentation",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "CUDA out of memory during Inductor CUDA graph execution allocator private memory pool fragmentation"
+    ]
+  },
+  {
+    "slug": "inductor-cumsum-zero-dim-tuple-index-out-of-range",
+    "title": "Inductor fails to compile cumsum on a 0-dim constant tensor with tuple index out of range",
+    "category": "Compilation",
+    "severity": "medium",
+    "signatures": [
+      "torch._inductor.exc.InductorError: IndexError: tuple index out of range",
+      "File \".../torch/_inductor/fx_passes/post_grad.py\", in pointless_cumsum_replacement",
+      "dim_size = shape[dim]"
+    ]
+  },
+  {
+    "slug": "inference-scheduler-deadlock-under-sustained-load",
+    "title": "An inference scheduler deadlocks under sustained load and stops issuing work",
+    "category": "Performance",
+    "severity": "critical",
+    "signatures": [
+      "assert total_num_tokens <= self.max_num_tokens, (",
+      "[TRT-LLM] [E] Encountered an error in forward function:",
+      "[TRT-LLM] [E] Error in event loop: Sampling failed"
+    ]
+  },
+  {
+    "slug": "infiniband-qp-rtr-connection-timed-out-errno-110",
+    "title": "ibv_rc_pingpong: Failed to modify QP to RTR errno 110 Connection timed out",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "ibv_rc_pingpong: Failed to modify QP to RTR errno 110 Connection timed out"
+    ]
+  },
+  {
+    "slug": "intel-i915-guc-gpu-hang",
+    "title": "Intel GPU (i915/Xe) Engine Hangs and GuC Firmware Failures",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "[drm] GPU HANG ecode ... in dmesg; workloads die mid-kernel"
+    ]
+  },
+  {
+    "slug": "jax-distributed-rendezvous-timeout",
+    "title": "jax.distributed initialize timed out waiting for rank 0 on coordinator",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "jax.distributed initialize timed out waiting for rank 0 on coordinator"
+    ]
+  },
+  {
+    "slug": "jax-xla-resource-exhausted-oom",
+    "title": "jax.errors.XlaRuntimeError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "jax.errors.XlaRuntimeError: RESOURCE_EXHAUSTED: Out of memory while trying to allocate"
+    ]
+  },
+  {
+    "slug": "k8s-gpu-silent-oom-hang",
+    "title": "Silent Pod GPU OOM Hang",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: CUDA out of memory."
+    ]
+  },
+  {
+    "slug": "k8s-insufficient-nvidia-gpu-allocatable",
+    "title": "0/32 nodes are available: Insufficient nvidia.com/gpu",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "0/32 nodes are available: Insufficient nvidia.com/gpu"
+    ]
+  },
+  {
+    "slug": "k8s-nvidia-device-plugin-nvml-libloading-error",
+    "title": "nvidia-device-plugin Failed to initialize NVML libnvidia-ml.so.1 cannot be found",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-device-plugin Failed to initialize NVML libnvidia-ml.so.1 cannot be found"
+    ]
+  },
+  {
+    "slug": "k8s-pod-evicted-ephemeral-storage-exceeded",
+    "title": "Pod evicted: Usage of ephemeral-storage exceeds limit",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "Pod evicted: Usage of ephemeral-storage exceeds limit"
+    ]
+  },
+  {
+    "slug": "kubernetes-mig-slice-device-locked-defunct-process",
+    "title": "Insufficient nvidia.com/mig device is locked by defunct process",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "Insufficient nvidia.com/mig device is locked by defunct process"
+    ]
+  },
+  {
+    "slug": "layernorm-fp16-overflow-backward-variance-underflow",
+    "title": "LayerNorm backward pass produced Inf values input variance below machine epsilon",
+    "category": "Training Stability",
+    "severity": "medium",
+    "signatures": [
+      "LayerNorm backward pass produced Inf values input variance below machine epsilon"
+    ]
+  },
+  {
+    "slug": "loss-is-nan-bf16-transformer-gradient-divergence",
+    "title": "Loss is NaN gradients contained NaN in transformer layer mlp c_proj bf16",
+    "category": "Training Stability",
+    "severity": "medium",
+    "signatures": [
+      "Loss is NaN gradients contained NaN in transformer layer mlp c_proj bf16"
+    ]
+  },
+  {
+    "slug": "megatron-p2p-communication-timeout",
+    "title": "P2PTimeoutError: Timeout receiving forward activations from rank",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "P2PTimeoutError: Timeout receiving forward activations from rank"
+    ]
+  },
+  {
+    "slug": "megatron-rotary-embedding-dimension-mismatch",
+    "title": "Rotary embedding dimension must be divisible by head dimension",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "Rotary embedding dimension must be divisible by head dimension"
+    ]
+  },
+  {
+    "slug": "megatron-sequence-parallel-assertion-error",
+    "title": "Megatron Sequence Parallel requires Tensor Parallel size > 1",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "Megatron Sequence Parallel requires Tensor Parallel size > 1"
+    ]
+  },
+  {
+    "slug": "milvus-segment-load-gpu-vram-oom",
+    "title": "milvus Failed to load vector index segment into GPU memory insufficient VRAM",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "milvus Failed to load vector index segment into GPU memory insufficient VRAM"
+    ]
+  },
+  {
+    "slug": "mxfp4-expert-scales-missing-under-fsdp2",
+    "title": "MXFP4 expert weights lose their scale attribute when a mixture-of-experts model loads under FSDP2",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "AttributeError: 'Mxfp4GptOssExperts' object has no attribute 'down_proj_scales'. Did you mean: 'down_proj_bias'?",
+      "File \".../transformers/modeling_utils.py\", in _load_state_dict_into_meta_model",
+      "value = getattr(module, param_type)"
+    ]
+  },
+  {
+    "slug": "nccl-algo-tree-deadlock-non-power-of-two-ranks",
+    "title": "NCCL Tree algorithm deadlocked non-power-of-two rank count NCCL_ALGO Ring",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL Tree algorithm deadlocked non-power-of-two rank count NCCL_ALGO Ring"
+    ]
+  },
+  {
+    "slug": "nccl-async-error",
+    "title": "NCCL Asynchronous Error Handling",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN asynchronous operation failed",
+      "NCCL errors not properly propagated to Python"
+    ]
+  },
+  {
+    "slug": "nccl-async-mismatched-tensor-fsdp",
+    "title": "FSDP Mismatched Tensor Shapes Triggering NCCL Hang",
+    "category": "Model",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: NCCL error in: /pytorch/torch/lib/c10d/ProcessGroupNCCL.cpp",
+      "Watchdog caught collective operation timeout: WorkNCCL(SeqNum=..., OpType=ALLGATHER"
+    ]
+  },
+  {
+    "slug": "nccl-async-timeout-asymmetric-collective-1",
+    "title": "Asymmetric Collective Calls leading to NCCL Watchdog Timeout",
+    "category": "Network",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: Watchdog caught collective operation timeout: WorkNCCL(SeqNum=...",
+      "NCCL WARN node [0-9]+ has different rank count"
+    ]
+  },
+  {
+    "slug": "nccl-async-timeout-infiniband-flap-1",
+    "title": "InfiniBand Link Flap Triggering NCCL Async Handshake Failure",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN Call to ibv_poll_cq failed",
+      "Watchdog caught unhandled error",
+      "Dmesg on one of the nodes shows InfiniBand link state changing to DOWN then UP."
+    ]
+  },
+  {
+    "slug": "nccl-async-watchdog-false-positive-checkpoint",
+    "title": "Watchdog Timeout False Positive during Long Checkpoint Saves",
+    "category": "Software",
+    "severity": "medium",
+    "signatures": [
+      "Watchdog caught collective operation timeout: WorkNCCL(SeqNum=...",
+      "ProcessGroupNCCL: Watchdog caught timeout during checkpointing"
+    ]
+  },
+  {
+    "slug": "nccl-async-xid-79-gpu-fail",
+    "title": "GPU Fallen Off Bus (Xid 79) causing Async NCCL Hang",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 79,
+    "signatures": [
+      "RuntimeError: NCCL error in: ... unhandled system error",
+      "One process reports a CUDA unhandled system error, while others hit NCCL timeout.",
+      "CUDA error: unhandled system error"
+    ]
+  },
+  {
+    "slug": "nccl-broadcast-coalesced-invalid-arg",
+    "title": "broadcast_coalesced Fails with Cuda failure 1 'invalid argument'",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: NCCL Error 1: unhandled cuda error",
+      "NCCL WARN Cuda failure 1 'invalid argument'",
+      "Happens inside torch._C._broadcast_coalesced"
+    ]
+  },
+  {
+    "slug": "nccl-broadcast-hang",
+    "title": "NCCL Broadcast Hang",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN broadcast timeout",
+      "torch.distributed.broadcast() hangs forever"
+    ]
+  },
+  {
+    "slug": "nccl-buffsize-ring-buffer-pinned-memory-exhausted",
+    "title": "NCCL ring buffer allocation failed NCCL_BUFFSIZE exceeds available contiguous pinned host memory",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL ring buffer allocation failed NCCL_BUFFSIZE exceeds available contiguous pinned host memory"
+    ]
+  },
+  {
+    "slug": "nccl-comm-timeout",
+    "title": "NCCL Communication Timeout",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN Communication timeout"
+    ]
+  },
+  {
+    "slug": "nccl-commsplit-segfault-nonblocking",
+    "title": "ncclCommSplit Segfault with Non-Blocking Init",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "SIGSEGV in ncclGroupCommJoin at include/group.h"
+    ]
+  },
+  {
+    "slug": "nccl-cross-nic-roce-packet-reordering-stall",
+    "title": "NCCL multi-NIC packet reordering detected RoCE packets arrived out of sequence pipeline stalled",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL multi-NIC packet reordering detected RoCE packets arrived out of sequence pipeline stalled"
+    ]
+  },
+  {
+    "slug": "nccl-cuda-failure",
+    "title": "NCCL CUDA Failure",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: NCCL error in:",
+      "NCCL WARN CUDA error",
+      "NCCL operations fail with CUDA error"
+    ]
+  },
+  {
+    "slug": "nccl-cuda-failure-999",
+    "title": "ncclUnhandledCudaError: Cuda failure 999 'unknown error'",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "ncclUnhandledCudaError: Call to CUDA function failed"
+    ]
+  },
+  {
+    "slug": "nccl-ddp-timeout-memory-1",
+    "title": "NCCL Timeout Triggered by Hidden Illegal Memory Access",
+    "category": "Network",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: NCCL error in: /pytorch/torch/lib/c10d/ProcessGroupNCCL.cpp",
+      "ncclUnhandledCudaError: Call to CUDA function failed.",
+      "Watchdog caught collective operation timeout: WorkNCCL"
+    ]
+  },
+  {
+    "slug": "nccl-error-2",
+    "title": "NCCL Error 2: Internal Error",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL error 2: internal error at /workspace/nccl/src/misc/argcheck.cpp",
+      "NCCL WARN NCCL error 2: internal error"
+    ]
+  },
+  {
+    "slug": "nccl-failed-to-init-transport-net-ib",
+    "title": "NCCL WARN Failed to initialize transport NET IB Resource temporarily unavailable",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN Failed to initialize transport NET IB Resource temporarily unavailable"
+    ]
+  },
+  {
+    "slug": "nccl-gdr-cross-numa-upi-throttle-crash",
+    "title": "NCCL WARN Direct RDMA write between GPU NUMA and HCA NUMA failed UPI interconnect",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN Direct RDMA write between GPU NUMA and HCA NUMA failed UPI interconnect"
+    ]
+  },
+  {
+    "slug": "nccl-gpu-direct-roce",
+    "title": "NCCL GPUDirect over RoCE",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN RoCE is not enabled"
+    ]
+  },
+  {
+    "slug": "nccl-hang-culprit-rank",
+    "title": "Finding the Culprit Rank in an NCCL Hang",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "No NCCL error emitted, watchdog eventually times out"
+    ]
+  },
+  {
+    "slug": "nccl-ib-hca-mismatch",
+    "title": "NCCL IB HCA Mismatch",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN NET/IB: no usable sockets"
+    ]
+  },
+  {
+    "slug": "nccl-init-error",
+    "title": "NCCL Initialization Error",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: NCCL error in init_process_group",
+      "NCCL WARN Initialize net device failed",
+      "NCCL init error: unhandled system error"
+    ]
+  },
+  {
+    "slug": "nccl-init-timeout",
+    "title": "NCCL Initialization Timeout",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: timed out initializing process group",
+      "NCCL WARN connection timed out",
+      "torch.distributed.init_process_group hangs"
+    ]
+  },
+  {
+    "slug": "nccl-ipv6-issue",
+    "title": "NCCL IPv6 Issue",
+    "category": "Communication",
+    "severity": "low",
+    "signatures": [
+      "NCCL WARN Net: No IPv6 interface found"
+    ]
+  },
+  {
+    "slug": "nccl-mismatched-collective",
+    "title": "NCCL Mismatched Collective. Different Ranks Executing Different Operations",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "NCCL error: Mismatched collective detected at rank X"
+    ]
+  },
+  {
+    "slug": "nccl-mnnvl-stack-overrun",
+    "title": "NCCL MNNVL Init Segfault at Large World Size (Stack Overrun)",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "SIGSEGV during NCCL communicator initialization",
+      "SIGSEGV during NCCL init at large world size (>=44)"
+    ]
+  },
+  {
+    "slug": "nccl-net-id-0-not-found",
+    "title": "NCCL 'Could not find NET with id 0' (NIC Fusion)",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "ncclInternalError: Internal check failed. Last error: Could not find NET with id 0",
+      "Intermittent (~25%) failures at torch.distributed.barrier()/init"
+    ]
+  },
+  {
+    "slug": "nccl-nvls-cuda-failure-700",
+    "title": "NVLS Illegal Memory Access (CUDA Error 700)",
+    "category": "Hardware",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN Cuda failure 700 'an illegal memory access was encountered'",
+      "NCCL WARN NVLS error"
+    ]
+  },
+  {
+    "slug": "nccl-nvls-invalid-argument",
+    "title": "NCCL NVLS CUDA failure 1: invalid argument",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "transport/nvls.cc:598 NCCL WARN Cuda failure 1 'invalid argument'"
+    ]
+  },
+  {
+    "slug": "nccl-onerank-reduce-sdc",
+    "title": "Single-Rank Reduce-Scatter Silent Data Corruption",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "Silent: no exception, no NCCL warning"
+    ]
+  },
+  {
+    "slug": "nccl-p2p-bandwidth",
+    "title": "NCCL P2P Bandwidth Issue",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL warning about P2P fallback"
+    ]
+  },
+  {
+    "slug": "nccl-p2p-issue",
+    "title": "NCCL P2P Communication Issue",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN net send/recv setup"
+    ]
+  },
+  {
+    "slug": "nccl-p2p-level-topology-debug",
+    "title": "NCCL P2P Level and Topology Routing Limits",
+    "category": "Hardware/Vendor",
+    "severity": "high",
+    "signatures": [
+      "nvidia-smi topo -m shows incomplete NVLink connectivity"
+    ]
+  },
+  {
+    "slug": "nccl-pcie-acs-p2p-disable",
+    "title": "PCIe ACS Blocking GPU Direct P2P",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "NCCL INFO P2P Disable",
+      "NCCL INFO Using SHM instead of P2P"
+    ]
+  },
+  {
+    "slug": "nccl-proxy-connect-ipv6",
+    "title": "NCCL Proxy Connect Failed (IPv6 Interference)",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "ncclInternalError: Internal check failed. Last error: Proxy Connect failed"
+    ]
+  },
+  {
+    "slug": "nccl-rank-fail",
+    "title": "NCCL Rank Fail",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN unhandled system error",
+      "NCCL error in:",
+      "torch.distributed.DistBackendError"
+    ]
+  },
+  {
+    "slug": "nccl-ras-init-segfault",
+    "title": "NCCL RAS Race Segfault During Initialization",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "SIGSEGV at address 0x10 during NCCL init"
+    ]
+  },
+  {
+    "slug": "nccl-ring-connection-refused-socket",
+    "title": "NCCL WARN Ring via NET/Socket Call to connect returned Connection refused",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN Ring via NET/Socket Call to connect returned Connection refused"
+    ]
+  },
+  {
+    "slug": "nccl-roce-gid-index-mismatch",
+    "title": "NCCL RoCEv2 GID Index Mismatch",
+    "category": "Network",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN NET/IB : Got completion with error 4, opcode 0, len 0, vendor err 0",
+      "NCCL WARN node is unreachable"
+    ]
+  },
+  {
+    "slug": "nccl-roce-qp-timeout-checkpoint",
+    "title": "RoCE QP Timeout During Distributed Checkpoint Save",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: NCCL Error 2: unhandled system error",
+      "ibv_modify_qp failed with error Connection timed out errno 110"
+    ]
+  },
+  {
+    "slug": "nccl-roce-vendor-err-129",
+    "title": "NCCL Vendor Err 129 (RDMA Timeout)",
+    "category": "Network",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN Call to ibv_poll_cq() failed with error 12",
+      "NCCL WARN NET/IB : Got completion with error 12, opcode 0, len 0, vendor err 129",
+      "Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "nccl-socket-ifname-network-unreachable",
+    "title": "NCCL WARN Connection failed : Network is unreachable NCCL_SOCKET_IFNAME",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN Connection failed : Network is unreachable NCCL_SOCKET_IFNAME"
+    ]
+  },
+  {
+    "slug": "nccl-timeout",
+    "title": "NCCL Collective Operation Timeout",
+    "category": "Distributed Communication",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN messages with specific rank and collective name",
+      "NCCL timeout or Watchdog caught collective operation timeout in logs"
+    ]
+  },
+  {
+    "slug": "nccl-timeout-slow-storage-checkpoint",
+    "title": "NCCL Timeout During Synchronous Checkpoint Save",
+    "category": "Network",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: NCCL error: unhandled system error",
+      "Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "nccl-topology-xml-missing-busid",
+    "title": "NCCL Topology XML Missing NIC Bus ID",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN Attribute busid of node nic not found"
+    ]
+  },
+  {
+    "slug": "nccl-version-conflict",
+    "title": "NCCL Version Conflict",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: incompatible NCCL versions"
+    ]
+  },
+  {
+    "slug": "nccl-warn-bootstrap-connection-reset-by-peer",
+    "title": "NCCL WARN Bootstrap: Condition [state == ncclSuccess] failed: Connection reset by peer",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN Bootstrap: Condition [state == ncclSuccess] failed: Connection reset by peer"
+    ]
+  },
+  {
+    "slug": "nccl-watchdog-disable",
+    "title": "NCCL Watchdog Configuration",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "NCCL errors don't appear when expected",
+      "NCCL WARN Operation completed before timeout"
+    ]
+  },
+  {
+    "slug": "nccl-watchdog-shape-mismatch",
+    "title": "Watchdog Timeout from Inconsistent Tensor Shapes",
+    "category": "Software",
+    "severity": "medium",
+    "signatures": [
+      "NCCL WARN Cuda failure 'invalid argument'",
+      "Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "nccl-watchdog-silent-oom",
+    "title": "Watchdog Timeout Caused by Silent Single-Rank OOM",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: NCCL error in: ... unhandled system error",
+      "Watchdog caught collective operation timeout",
+      "CUDA out of memory"
+    ]
+  },
+  {
+    "slug": "nccl-watchdog-tcpstore-timeout",
+    "title": "Misaligned TCPStore and NCCL Initialization Timeouts",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "RuntimeError: Socket Timeout",
+      "DistBackendError: Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "nccl-watchdog-timeout-worknccl-allgather",
+    "title": "Watchdog caught collective operation timeout WorkNCCL AllGather",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "Watchdog caught collective operation timeout WorkNCCL AllGather"
+    ]
+  },
+  {
+    "slug": "nccl-watchdog-uneven-sharding",
+    "title": "NCCL Watchdog Timeout due to Uneven Dataset Sharding",
+    "category": "Data",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN local rank * failed to connect to ring",
+      "RuntimeError: Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "nccl-watchdog-wrong-interface",
+    "title": "NCCL Watchdog Timeout due to Incorrect Network Interface",
+    "category": "Network",
+    "severity": "high",
+    "signatures": [
+      "NCCL WARN Call to connect returned Connection refused",
+      "Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "nccl-wrong-network-interface",
+    "title": "NCCL Binding to Virtual/Docker Interface",
+    "category": "Network",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN Call to connect returned Connection timed out",
+      "NCCL WARN Bootstrap : no socket interface found"
+    ]
+  },
+  {
+    "slug": "nfs-server-not-responding-d-state-hung-process",
+    "title": "nfs: server not responding still trying task blocked for more than 120 seconds",
+    "category": "Data Pipeline",
+    "severity": "medium",
+    "signatures": [
+      "nfs: server not responding still trying task blocked for more than 120 seconds"
+    ]
+  },
+  {
+    "slug": "nvdec-hardware-decoder-sessions-exceeded",
+    "title": "NVDEC hardware decoder stream allocation failed maximum concurrent decode sessions exceeded",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "NVDEC hardware decoder stream allocation failed maximum concurrent decode sessions exceeded"
+    ]
+  },
+  {
+    "slug": "nvidia-container-cli-device-node-not-found",
+    "title": "nvidia-container-cli device node error /dev/nvidiactl no such file or directory",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-container-cli device node error /dev/nvidiactl no such file or directory"
+    ]
+  },
+  {
+    "slug": "nvidia-fabricmanager-failed-nvlink-topology-mismatch",
+    "title": "Fabric Manager initialization failed: NVLink topology match failed",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "Fabric Manager initialization failed: NVLink topology match failed"
+    ]
+  },
+  {
+    "slug": "nvidia-gpu-operator-driver-daemonset-crashloopbackoff",
+    "title": "NVIDIA-Driver-DaemonSet kernel module build failed gcc version mismatch",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "NVIDIA-Driver-DaemonSet kernel module build failed gcc version mismatch"
+    ]
+  },
+  {
+    "slug": "nvidia-mig-failed-to-create-gpu-instance-incompatible-profile",
+    "title": "nvidia-smi mig unable to create GPU instance requested profile is incompatible",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi mig unable to create GPU instance requested profile is incompatible"
+    ]
+  },
+  {
+    "slug": "nvidia-peermem-bar1-aperture-exhausted",
+    "title": "nvidia-peermem kernel rejected peer-direct DMA mapping BAR1 aperture exhausted",
+    "category": "Communication",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-peermem kernel rejected peer-direct DMA mapping BAR1 aperture exhausted"
+    ]
+  },
+  {
+    "slug": "nvidia-smi-sw-thermal-slowdown-clock-throttle",
+    "title": "Clocks throttled HW Slowdown SW Thermal Slowdown core clock reduced",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "Clocks throttled HW Slowdown SW Thermal Slowdown core clock reduced"
+    ]
+  },
+  {
+    "slug": "nvidia-vgpu-dls-license-acquisition-timeout",
+    "title": "nvidia-gridd failed to acquire license from DLS server license lease expired throttling",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-gridd failed to acquire license from DLS server license lease expired throttling"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-119-gsp-rpc-timeout-firmware",
+    "title": "NVRM: Xid 119, Timeout waiting for RPC message from GSP-RM firmware",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 119,
+    "signatures": [
+      "NVRM: Xid 119, Timeout waiting for RPC message from GSP-RM firmware"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-31-mmu-fault-graphics",
+    "title": "NVRM: Xid 31, MMU Fault: ENGINE GRAPHICS GPCCLIENT FAULT_PDE",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 31,
+    "signatures": [
+      "NVRM: Xid 31, MMU Fault: ENGINE GRAPHICS GPCCLIENT FAULT_PDE"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-45-preemptive-cleanup",
+    "title": "NVRM: Xid 45, Preemptive cleanup",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 45,
+    "signatures": [
+      "NVRM: Xid 45, Preemptive cleanup"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-61-microcontroller-warning",
+    "title": "NVIDIA Xid 61 - Internal Microcontroller Breakpoint",
+    "category": "Hardware",
+    "severity": "high",
+    "xid": 61,
+    "signatures": [
+      "CUDA error: unspecified launch failure",
+      "nvidia-smi may still show the GPU, but it becomes unresponsive to new workloads"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-62-internal-microcode-fault",
+    "title": "NVRM: Xid 62, Internal Microcode Error",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 62,
+    "signatures": [
+      "NVRM: Xid 62, Internal Microcode Error"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-69-graphics-engine-class-error",
+    "title": "NVIDIA Xid 69 - Graphics Engine Class Error",
+    "category": "Hardware",
+    "severity": "high",
+    "xid": 69,
+    "signatures": [
+      "CUDA error: an illegal memory access was encountered"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-74-nvlink-fatal-error",
+    "title": "NVIDIA Xid 74 - NVLink Fatal Error",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 74,
+    "signatures": [
+      "RuntimeError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp",
+      "NCCL WARN NVLink connection failed"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-79-gpu-fallen-off-bus",
+    "title": "NVIDIA Xid 79 - GPU Fallen off the Bus",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 79,
+    "signatures": [
+      "RuntimeError: CUDA error: unknown error",
+      "GPU completely disappears from `nvidia-smi` output",
+      "No devices were found (nvidia-smi)"
+    ]
+  },
+  {
+    "slug": "nvidia-xid-79-gpu-fallen-off-the-bus",
+    "title": "Xid 79: GPU has fallen off the bus",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 79,
+    "signatures": [
+      "[Sat Aug 22 03:14:52 2026] NVRM: Xid (PCI:0000:8a:00): 79, pid='<unknown>', name=<unknown>, GPU has fallen off the bus.",
+      "[Sat Aug 22 03:14:52 2026] NVRM: GPU 0000:8a:00.0: GPU has fallen off the bus.",
+      "[Sat Aug 22 03:14:52 2026] NVRM: A GPU crash dump has been created. If possible, please run nvidia-bug-report.sh as root to collect this data."
+    ]
+  },
+  {
+    "slug": "nvidia-xid-92-uncorrectable-ecc-error",
+    "title": "NVRM: Xid 92, High uncorrectable double-bit ECC error threshold exceeded",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 92,
+    "signatures": [
+      "NVRM: Xid 92, High uncorrectable double-bit ECC error threshold exceeded"
+    ]
+  },
+  {
+    "slug": "nvlink-5-switch-tray-asic-link-training-failure",
+    "title": "NVLink 5 switch tray ASIC port link training failed signal integrity",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "NVLink 5 switch tray ASIC port link training failed signal integrity"
+    ]
+  },
+  {
+    "slug": "nvlink-recovery-error-link-state-down",
+    "title": "nvidia-smi nvlink NVLink Link Recovery Error Link State Down",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "nvidia-smi nvlink NVLink Link Recovery Error Link State Down"
+    ]
+  },
+  {
+    "slug": "nvlink-xid-74-fabric-manager",
+    "title": "NVLink Fatal Error Xid 74 with Fabric Manager Crash",
+    "category": "Hardware/Network",
+    "severity": "critical",
+    "xid": 74,
+    "signatures": [
+      "NCCL WARN NVLink connection timeout",
+      "nvidia-smi hangs or shows ERR! for GPU utilization."
+    ]
+  },
+  {
+    "slug": "nvlink-xid31-mmu-fault",
+    "title": "NVLink/NVLS Failure with Xid 31 MMU Fault Cascade",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 31,
+    "signatures": [
+      "transport/nvls.cc:244 NCCL WARN Cuda failure 1 'invalid argument'"
+    ]
+  },
+  {
+    "slug": "nvls-error",
+    "title": "NVLink SHARP (NVLS) multicast initialization failure",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "CUDA_ERROR_SYSTEM_NOT_READY",
+      "NV_ERR_FABRIC_MANAGER_NOT_PRESENT"
+    ]
+  },
+  {
+    "slug": "nvml-hw-power-brake-asserted-power-cap",
+    "title": "HW Power Brake Asserted GPU power capped check chassis PSU redundancy",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "HW Power Brake Asserted GPU power capped check chassis PSU redundancy"
+    ]
+  },
+  {
+    "slug": "oom-container-unattributed",
+    "title": "OOMKilled Containers Without Clear Attribution",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "dmesg shows 'Out of memory: Killed process' with name 'python'"
+    ]
+  },
+  {
+    "slug": "oom-fragmentation",
+    "title": "CUDA Memory Fragmentation OOM",
+    "category": "GPU Memory Management",
+    "severity": "high",
+    "signatures": [
+      "PyTorch reports CUDA out of memory despite total free memory being sufficient"
+    ]
+  },
+  {
+    "slug": "oom-killed-mid-step",
+    "title": "OOM Killed Mid-Step",
+    "category": "Reliability",
+    "severity": "high",
+    "signatures": [
+      "Exit code 137 (SIGKILL)",
+      "dmesg shows OOM killer"
+    ]
+  },
+  {
+    "slug": "openmp-libomp-libgomp-deadlock-clash",
+    "title": "OMP: Error #15: Initializing libomp.so but found libgomp.so already initialized",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "OMP: Error #15: Initializing libomp.so but found libgomp.so already initialized"
+    ]
+  },
+  {
+    "slug": "openrlhf-ray-vllm-placement-group-timeout",
+    "title": "PlacementGroupCreationError placement group creation timed out insufficient GPU resources",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "PlacementGroupCreationError placement group creation timed out insufficient GPU resources"
+    ]
+  },
+  {
+    "slug": "opensm-subnet-manager-sweep-failure",
+    "title": "OpenSM SM sweep failed: Link state active timeout on Port GUID",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "OpenSM SM sweep failed: Link state active timeout on Port GUID"
+    ]
+  },
+  {
+    "slug": "pcie-link-degraded-gen5-to-gen1-bandwidth-drop",
+    "title": "PCIe Link Width 1x Max 16x PCIe Link Gen 1 Max 5 degraded",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "PCIe Link Width 1x Max 16x PCIe Link Gen 1 Max 5 degraded"
+    ]
+  },
+  {
+    "slug": "peft-lora-int8-gradients-runtime-error",
+    "title": "Only Tensors of floating point dtype can require gradients int8 LoRA",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "Only Tensors of floating point dtype can require gradients int8 LoRA"
+    ]
+  },
+  {
+    "slug": "python-313-cannot-pickle-code-objects-in-distributed-error-path",
+    "title": "Python 3.13 cannot pickle code objects, so a distributed job reports the wrong failure",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "TypeError: cannot pickle code objects",
+      "pickle.Pickler(io.BytesIO()).dump(trace)",
+      "[<FrameSummary file /tmp/pickly.py, line 2 in <module>>]"
+    ]
+  },
+  {
+    "slug": "python-oom",
+    "title": "Python Out of Memory",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "OSError: [Errno 12] Cannot allocate memory"
+    ]
+  },
+  {
+    "slug": "pytorch-cuda-out-of-memory-tried-to-allocate",
+    "title": "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate"
+    ]
+  },
+  {
+    "slug": "pytorch-ddp-silent-oom-nccl-timeout",
+    "title": "Silent OOM Leading to Cluster-wide NCCL Timeout",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN Cuda failure 'out of memory'",
+      "Inspecting worker logs might reveal a CUDA Out of Memory on a single GPU on one of the nodes, while the master node only shows a timeout."
+    ]
+  },
+  {
+    "slug": "pytorch-ddp-uneven-inputs-hang",
+    "title": "DDP Hang from Uneven Dataset Sizes Across Ranks",
+    "category": "Synchronization",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp"
+    ]
+  },
+  {
+    "slug": "pytorch-ddp-unused-parameters-hang",
+    "title": "DDP Hang Due to Unused Parameters in Forward Pass",
+    "category": "Synchronization",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one."
+    ]
+  },
+  {
+    "slug": "pytorch-expected-all-tensors-same-device",
+    "title": "Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu"
+    ]
+  },
+  {
+    "slug": "pytorch-fsdp-cpu-oom-statedict",
+    "title": "System Memory OOM on FSDP Checkpoint Save",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "The training job suddenly gets OOM killed by the OS (dmesg shows python process killed) during the checkpoint saving phase.",
+      "out of memory in torch.cat"
+    ]
+  },
+  {
+    "slug": "pytorch-fsdp-inconsistent-model-hang",
+    "title": "FSDP Hang Due to Divergent Parameter Initialization",
+    "category": "Model",
+    "severity": "high",
+    "signatures": [
+      "Watchdog caught collective operation timeout: _ALLGATHER_BASE"
+    ]
+  },
+  {
+    "slug": "pytorch-fsdp-nccl-timeout-custom-pg",
+    "title": "FSDP Ignores User-Defined NCCL Timeout with Device Mesh",
+    "category": "Network",
+    "severity": "critical",
+    "signatures": [
+      "torch.distributed.DistBackendError: NCCL error in: ../torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp",
+      "ncclTimeout: unhandled system error",
+      "Watchdog caught collective operation timeout"
+    ]
+  },
+  {
+    "slug": "pytorch-oom-activation-seqlen-5",
+    "title": "Activation Memory Explosion from Quadratic Attention",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA out of memory. Tried to allocate (large amount) MiB"
+    ]
+  },
+  {
+    "slug": "pytorch-oom-eval-leak-3",
+    "title": "Evaluation Loop OOM due to Missing torch.no_grad",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA out of memory. (Occurs during the validation/evaluation phase)"
+    ]
+  },
+  {
+    "slug": "pytorch-oom-fragmentation-1",
+    "title": "PyTorch CUDA Memory Fragmentation",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA out of memory. Tried to allocate .* MiB .* .* GiB reserved in total by PyTorch",
+      "CUDA OOM exception thrown even when nvidia-smi shows plenty of total free GPU memory."
+    ]
+  },
+  {
+    "slug": "pytorch-oom-graph-leak-2",
+    "title": "Computation Graph Memory Leak via Loss Accumulation",
+    "category": "Memory",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: CUDA out of memory."
+    ]
+  },
+  {
+    "slug": "pytorch-oom-optimizer-step-4",
+    "title": "Optimizer State Memory Explosion",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: CUDA out of memory. (Occurs on the line `optimizer.step()`)"
+    ]
+  },
+  {
+    "slug": "pytorch-oom-worker-hang-1",
+    "title": "DataLoader Deadlock from Silent Worker OOM",
+    "category": "Environment",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: DataLoader worker (pid(s) X) exited unexpectedly"
+    ]
+  },
+  {
+    "slug": "ray-client-server-fails-after-grpcio-upgrade-on-arm64",
+    "title": "Ray client connection aborts on ARM64 after a grpcio upgrade while x86 is unaffected",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "ConnectionAbortedError: Initialization failure from server:",
+      "RuntimeError: Starting Ray client server failed. See ray_client_server_23002.err for detailed logs.",
+      "File \".../ray/util/client/worker.py\", line 875, in _server_init"
+    ]
+  },
+  {
+    "slug": "ray-clusterunavailableerror-raylet-died-oom",
+    "title": "ray.exceptions.ClusterUnavailableError Raylet process crashed OOM killed",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "ray.exceptions.ClusterUnavailableError Raylet process crashed OOM killed"
+    ]
+  },
+  {
+    "slug": "ray-runtimeenvsetuperror-timeout",
+    "title": "ray.exceptions.RuntimeEnvSetupError Runtime environment setup timed out",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "ray.exceptions.RuntimeEnvSetupError Runtime environment setup timed out"
+    ]
+  },
+  {
+    "slug": "rccl-ring-exchange-failure-infinity-fabric",
+    "title": "RCCL WARN Ring failed IPC handle mapping failed across AMD Infinity Fabric gfx90a",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "RCCL WARN Ring failed IPC handle mapping failed across AMD Infinity Fabric gfx90a"
+    ]
+  },
+  {
+    "slug": "rocev2-pfc-storm-priority-flow-control-deadlock",
+    "title": "mlx5_core mlx5_pfc_stall_detect PFC storm detected on priority fabric deadlock",
+    "category": "Communication",
+    "severity": "high",
+    "signatures": [
+      "mlx5_core mlx5_pfc_stall_detect PFC storm detected on priority fabric deadlock"
+    ]
+  },
+  {
+    "slug": "rocm-hiperroroutofmemory-dev-kfd",
+    "title": "HIP error: hipErrorOutOfMemory Out of device memory AMD Instinct /dev/kfd",
+    "category": "Hardware",
+    "severity": "medium",
+    "signatures": [
+      "HIP error: hipErrorOutOfMemory Out of device memory AMD Instinct /dev/kfd"
+    ]
+  },
+  {
+    "slug": "ros2-pytorch-shared-memory-ring-buffer-corruption",
+    "title": "rclpy RCLError Failed to publish sensor_msgs Image shared memory ring buffer overwrite",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "rclpy RCLError Failed to publish sensor_msgs Image shared memory ring buffer overwrite"
+    ]
+  },
+  {
+    "slug": "s3-putobject-503-slowdown-checkpoint-throttle",
+    "title": "botocore ClientError 503 PutObject SlowDown S3 prefix request rate exceeded",
+    "category": "Data Integrity",
+    "severity": "medium",
+    "signatures": [
+      "botocore ClientError 503 PutObject SlowDown S3 prefix request rate exceeded"
+    ]
+  },
+  {
+    "slug": "safetensors-error-deserializing-header-too-large",
+    "title": "SafetensorError: Error while deserializing header: HeaderTooLarge",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "SafetensorError: Error while deserializing header: HeaderTooLarge"
+    ]
+  },
+  {
+    "slug": "sentence-transformers-embedding-cuda-out-of-memory",
+    "title": "CUDA out of memory during sentence_transformers encode sequence length batch size",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "CUDA out of memory during sentence_transformers encode sequence length batch size"
+    ]
+  },
+  {
+    "slug": "sglang-radix-cache-eviction-deadlock",
+    "title": "sglang RadixCacheError Failed to lock memory page during dynamic prefix eviction",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "sglang RadixCacheError Failed to lock memory page during dynamic prefix eviction"
+    ]
+  },
+  {
+    "slug": "silent-data-corruption-tensor-core-gemm-bit-flip",
+    "title": "tensor core GEMM calculation deviation silent data corruption bit flip",
+    "category": "Data Integrity",
+    "severity": "critical",
+    "signatures": [
+      "tensor core GEMM calculation deviation silent data corruption bit flip"
+    ]
+  },
+  {
+    "slug": "slurm-cgroup-unable-to-allocate-memory",
+    "title": "slurmstepd: task/cgroup: unable to allocate requested memory for GPU step",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "slurmstepd: task/cgroup: unable to allocate requested memory for GPU step"
+    ]
+  },
+  {
+    "slug": "slurm-drain-nvml-health-check-timed-out",
+    "title": "Node state DRAIN: NVML health check timed out GPU uncorrectable ECC",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "Node state DRAIN: NVML health check timed out GPU uncorrectable ECC"
+    ]
+  },
+  {
+    "slug": "slurm-node-oom",
+    "title": "SLURM Node Out of Memory",
+    "category": "Infrastructure",
+    "severity": "critical",
+    "signatures": [
+      "slurmstepd: error: job X killed by OOM",
+      "Dmesg shows OOM killer"
+    ]
+  },
+  {
+    "slug": "slurmstepd-cancelled-due-to-oom-killer",
+    "title": "slurmstepd: error: JOB CANCELLED DUE TO OOM-KILLER",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "slurmstepd: error: JOB CANCELLED DUE TO OOM-KILLER"
+    ]
+  },
+  {
+    "slug": "tensor-on-device-meta-not-on-expected-device",
+    "title": "Tensor on device meta is not on the expected device: a device mismatch from a parameter never materialised",
+    "category": "Memory Management",
+    "severity": "high",
+    "signatures": [
+      "RuntimeError: Tensor on device meta is not on the expected device cuda:0!",
+      "File \".../torch/_prims/__init__.py\", in _prim_elementwise_meta",
+      "File \".../torch/_library/fake_impl.py\", in meta_kernel"
+    ]
+  },
+  {
+    "slug": "tensorrt-llm-kvcachemanager-available-blocks-exhausted",
+    "title": "TensorRT-LLM KVCacheManager Available blocks exhausted",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "TensorRT-LLM KVCacheManager Available blocks exhausted"
+    ]
+  },
+  {
+    "slug": "torch-distributed-checkpoint-async-save-timeout",
+    "title": "DistCheckpointError Async checkpoint saving failed in background thread write timeout",
+    "category": "Data Integrity",
+    "severity": "high",
+    "signatures": [
+      "DistCheckpointError Async checkpoint saving failed in background thread write timeout"
+    ]
+  },
+  {
+    "slug": "torch-distributed-checkpoint-non-leaf-tensor",
+    "title": "Cowardly refusing to serialize non-leaf tensor",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "Cowardly refusing to serialize non-leaf tensor"
+    ]
+  },
+  {
+    "slug": "torch-dynamo-backend-compiler-failed-inductor",
+    "title": "torch._dynamo.exc.BackendCompilerFailed backend inductor LoweringException",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "torch._dynamo.exc.BackendCompilerFailed backend inductor LoweringException"
+    ]
+  },
+  {
+    "slug": "torch-dynamo-graph-break-control-flow-item",
+    "title": "torch._dynamo.exc.RestartAnalysis Exceeded maximum graph break limit",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "torch._dynamo.exc.RestartAnalysis Exceeded maximum graph break limit"
+    ]
+  },
+  {
+    "slug": "torch-load-unpicklingerror-truncated-checkpoint",
+    "title": "UnpicklingError pickle data was truncated EOFError Ran out of input checkpoint",
+    "category": "Data Integrity",
+    "severity": "medium",
+    "signatures": [
+      "UnpicklingError pickle data was truncated EOFError Ran out of input checkpoint"
+    ]
+  },
+  {
+    "slug": "torch-multiprocessing-dev-shm-no-space-left",
+    "title": "unable to mmap bytes from /dev/shm No space left on device torch multiprocessing",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "unable to mmap bytes from /dev/shm No space left on device torch multiprocessing"
+    ]
+  },
+  {
+    "slug": "torchao-int8-calibration-observer-nan-error",
+    "title": "torchao quantization CalibrationError observed activation tensor contains NaN during INT8 observer",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "torchao quantization CalibrationError observed activation tensor contains NaN during INT8 observer"
+    ]
+  },
+  {
+    "slug": "torchelastic-childfailederror-exitcode-9-oom",
+    "title": "torch.distributed.elastic.multiprocessing.errors.ChildFailedError exitcode -9",
+    "category": "Distributed Training",
+    "severity": "medium",
+    "signatures": [
+      "torch.distributed.elastic.multiprocessing.errors.ChildFailedError exitcode -9"
+    ]
+  },
+  {
+    "slug": "torchrun-c10d-rendezvous-timeout",
+    "title": "TorchElastic Rendezvous Timeout on Large Clusters",
+    "category": "Network",
+    "severity": "medium",
+    "signatures": [
+      "torch.distributed.elastic.rendezvous.api.RendezvousTimeoutError"
+    ]
+  },
+  {
+    "slug": "triton-dynamic-batcher-queue-timeout-drop",
+    "title": "Dynamic batcher queue exceeded max_queue_delay_microseconds",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "Dynamic batcher queue exceeded max_queue_delay_microseconds"
+    ]
+  },
+  {
+    "slug": "triton-failed-to-load-model-cuda-runtime-mismatch",
+    "title": "failed to load model TensorRT engine built with CUDA cannot run on host CUDA runtime",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "failed to load model TensorRT engine built with CUDA cannot run on host CUDA runtime"
+    ]
+  },
+  {
+    "slug": "triton-jit-compilation-ptxas-gpu-name-error",
+    "title": "Triton JIT compilation failed ptxas fatal Value sm_90a is not defined for option gpu-name",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "Triton JIT compilation failed ptxas fatal Value sm_90a is not defined for option gpu-name"
+    ]
+  },
+  {
+    "slug": "triton-out-of-resources-shared-memory-exceeded",
+    "title": "triton OutOfResources Out of resources during kernel launch shared memory request exceeds device maximum",
+    "category": "Environment",
+    "severity": "medium",
+    "signatures": [
+      "triton OutOfResources Out of resources during kernel launch shared memory request exceeds device maximum"
+    ]
+  },
+  {
+    "slug": "trl-ppotrainer-actor-critic-out-of-memory",
+    "title": "PPOTrainer CUDA out of memory cannot fit reference model policy model and value head",
+    "category": "Distributed Training",
+    "severity": "high",
+    "signatures": [
+      "PPOTrainer CUDA out of memory cannot fit reference model policy model and value head"
+    ]
+  },
+  {
+    "slug": "trtllm-build-out-of-memory-int4-quantization",
+    "title": "trtllm-build Out of memory during weight-only INT4 quantization",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "trtllm-build Out of memory during weight-only INT4 quantization"
+    ]
+  },
+  {
+    "slug": "trtllm-flashinfer-attention-metadata-attribute-error",
+    "title": "TensorRT-LLM serving fails with an AttributeError from the FlashInfer attention backend",
+    "category": "Environment",
+    "severity": "critical",
+    "signatures": [
+      "AttributeError: 'TrtllmAttentionMetadata' object has no attribute 'kv_layout'",
+      "File \"/usr/local/lib/python3.12/dist-packages/tensorrt_llm/_torch/attention_backend/flashinfer.py\", line 1518, in forward_impl",
+      "self.layer_idx, kv_layout=metadata.kv_layout)"
+    ]
+  },
+  {
+    "slug": "trtllm-flashinfer-fmha-unsupported-architecture",
+    "title": "TensorRT-LLM fails at model init because the FlashInfer FMHA kernel has no build for the GPU architecture",
+    "category": "Environment",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: Error in function 'TllmGenFmhaRunner' at /usr/local/lib/python3.12/dist-packages/flashinfer/data/include/flashinfer/trtllm/fmha/fmhaRunner.cuh:37: Unsupported architecture",
+      "Model init total -- 21.36s",
+      "[TRT-LLM] [W] [quantize] Inline 'config.json.quantization_config' diverges from 'hf_quant_config.json'"
+    ]
+  },
+  {
+    "slug": "trtllm-fp8-unsupported-compute-capability",
+    "title": "TensorRT-LLM rejects FP8 quantization on a GPU below compute capability 8.9",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "[TRT-LLM] [E] FP8 quantization is not supported on this GPU architecture (compute capability 8.0). Rebuild the engine with a supported quantization mode.",
+      "[TRT-LLM] [I] Detected device 0: NVIDIA A100-SXM4-80GB, compute capability 8.0"
+    ]
+  },
+  {
+    "slug": "trtllm-numpy-abi-break-against-pinned-container-stack",
+    "title": "TensorRT-LLM conversion and build scripts fail after NumPy is upgraded inside a pinned container",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "A module that was compiled using NumPy 1.x cannot be run in NumPy 2.0.1 as it may crash. To support both 1.x and 2.x versions of NumPy, modules must be compiled with NumPy 2.0.",
+      "File \"/opt/venv-tritonserver/lib/python3.12/site-packages/tensorrt_llm/_common.py\", line 224, in decorated",
+      "File \"/opt/venv-tritonserver/lib/python3.12/site-packages/tensorrt_llm/builder.py\", line 1267, in build"
+    ]
+  },
+  {
+    "slug": "trtllm-optimization-profile-min-exceeds-opt",
+    "title": "trtllm-build fails because an optimization profile has a minimum dimension above its optimum",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "[TRT-LLM] [E] Error building engine: optimization profile is invalid.",
+      "[TRT-LLM] [E] min dimension is greater than opt dimension for input_ids",
+      "[TRT-LLM] [I] input_ids | Min (1) | Opt (8) | Max (8192)"
+    ]
+  },
+  {
+    "slug": "trtllm-weight-mapper-rejects-quantized-checkpoint",
+    "title": "TensorRT-LLM refuses a quantized checkpoint because its weight mapper does not recognise the export layout",
+    "category": "Data Integrity",
+    "severity": "high",
+    "signatures": [
+      "[TRT-LLM] [E] qwen3_5_weight_mapper rejects ModelOpt W4A16_AWQ checkpoints",
+      "[TRT-LLM] [I] Loading weights via the architecture weight mapper"
+    ]
+  },
+  {
+    "slug": "uvm-unified-memory-page-fault-thrashing-xid-31",
+    "title": "UVM fault excessive page migrations between host RAM and GPU HBM cudaMallocManaged",
+    "category": "Memory",
+    "severity": "medium",
+    "xid": 31,
+    "signatures": [
+      "UVM fault excessive page migrations between host RAM and GPU HBM cudaMallocManaged"
+    ]
+  },
+  {
+    "slug": "vllm-active-lora-rank-exceeds-max-lora-rank",
+    "title": "Active LoRA adapter rank exceeds engine pre-allocated max_lora_rank",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "Active LoRA adapter rank exceeds engine pre-allocated max_lora_rank"
+    ]
+  },
+  {
+    "slug": "vllm-chunked-prefill-token-budget-oom",
+    "title": "vLLM runs out of GPU memory during serving after the prefill token budget is raised",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.83 GiB. GPU 0 has a total capacity of 79.15 GiB of which 2.11 GiB is free.",
+      "INFO: Chunked prefill is enabled with max_num_batched_tokens=16384.",
+      "WARNING: If out-of-memory occurs during cudagraph capture, consider decreasing gpu_memory_utilization or switching to eager mode."
+    ]
+  },
+  {
+    "slug": "vllm-engine-core-died-mid-service",
+    "title": "vLLM returns 500 on every request after the EngineCore process dies",
+    "category": "Reliability",
+    "severity": "critical",
+    "signatures": [
+      "ERROR: Engine core proc EngineCore_DP0 died unexpectedly, shutting down client.",
+      "vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.",
+      "INFO:     10.0.4.19:52344 - \"POST /v1/chat/completions HTTP/1.1\" 500 Internal Server Error"
+    ]
+  },
+  {
+    "slug": "vllm-engine-worker-died-sigsegv",
+    "title": "vLLM AsyncEngineWorker died unexpectedly with SIGSEGV",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "vLLM AsyncEngineWorker died unexpectedly with SIGSEGV"
+    ]
+  },
+  {
+    "slug": "vllm-kv-cache-no-available-memory",
+    "title": "vLLM refuses to start with No available memory for the cache blocks",
+    "category": "Memory",
+    "severity": "high",
+    "signatures": [
+      "ERROR 08-14 09:12:44 engine.py:132] ValueError: No available memory for the cache blocks. Try increasing `gpu_memory_utilization` when initializing the engine.",
+      "File \"vllm/v1/core/kv_cache_utils.py\", line --, in check_enough_kv_cache_memory",
+      "INFO 08-14 09:12:41 worker.py:--] Memory profiling results: total_gpu_memory=79.15GiB model_weights=27.92GiB peak_activation=51.30GiB"
+    ]
+  },
+  {
+    "slug": "vllm-max-model-len-context-overflow",
+    "title": "vLLM rejects a request because the prompt plus completion exceeds the served context length",
+    "category": "Memory",
+    "severity": "medium",
+    "signatures": [
+      "ValueError: This model's maximum context length is 4096 tokens, however you requested 5120 tokens (4608 in your prompt; 512 for the completion). Reduce max_model_len or the prompt length.",
+      "WARNING: The model's max seq len (32768) is larger than the maximum number of tokens that can be stored in KV cache (15424)."
+    ]
+  },
+  {
+    "slug": "vllm-no-available-memory-for-cache-blocks",
+    "title": "ValueError: No available memory for the cache blocks gpu_memory_utilization",
+    "category": "Infrastructure",
+    "severity": "medium",
+    "signatures": [
+      "ValueError: No available memory for the cache blocks gpu_memory_utilization"
+    ]
+  },
+  {
+    "slug": "vllm-nvfp4-emulation-lookup-table-device-mismatch",
+    "title": "vLLM crashes initialising an NVFP4 model because the emulation lookup table stays on the CPU",
+    "category": "Environment",
+    "severity": "high",
+    "signatures": [
+      "[nvfp4.py:283] Using 'EMULATION' NvFp4 MoE backend out of potential backends: ['FLASHINFER_TRTLLM', 'FLASHINFER_CUTEDSL', 'FLASHINFER_CUTLASS', 'VLLM_CUTLASS', 'MARLIN', 'EMULATION'].",
+      "File \".../vllm/model_executor/layers/quantization/utils/nvfp4_emulation_utils.py\", line 38, in break_fp4_bytes",
+      "values = kE2M1[abs_vals] * torch.where(signs, -1.0, 1.0)"
+    ]
+  },
+  {
+    "slug": "vllm-paged-attention-illegal-memory-access",
+    "title": "CUDA error: an illegal memory access was encountered paged_attention",
+    "category": "Infrastructure",
+    "severity": "high",
+    "signatures": [
+      "CUDA error: an illegal memory access was encountered paged_attention"
+    ]
+  },
+  {
+    "slug": "vllm-preemption-recompute-thrash",
+    "title": "vLLM throughput collapses as the scheduler preempts and recomputes the same requests",
+    "category": "Performance",
+    "severity": "high",
+    "signatures": [
+      "WARNING: Sequence group 0 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory.",
+      "INFO: Avg prompt throughput: 2140.0 tokens/s, Avg generation throughput: 41.2 tokens/s, Running: 48 reqs, Preempted: 31 reqs"
+    ]
+  },
+  {
+    "slug": "vllm-shm-broadcast-acquire-read-timeout",
+    "title": "vLLM workers time out reading the shared-memory broadcast ring and the engine dies",
+    "category": "Communication",
+    "severity": "critical",
+    "signatures": [
+      "File \"/root/anaconda3/envs/vllm_0.8.5/lib/python3.12/site-packages/vllm/distributed/device_communicators/shm_broadcast.py\", line 443, in acquire_read",
+      "raise TimeoutError",
+      "TimeoutError"
+    ]
+  },
+  {
+    "slug": "vllm-shm-too-small-tensor-parallel",
+    "title": "vLLM tensor parallelism fails in a container because shared memory is limited to 64 MB",
+    "category": "Infrastructure",
+    "severity": "critical",
+    "signatures": [
+      "NCCL WARN Error while creating shared memory segment /dev/shm/nccl-vzIpS6 (size 9637888)",
+      "torch.distributed.DistBackendError: NCCL error: unhandled system error (run with NCCL_DEBUG=INFO for details)",
+      "WARNING: /dev/shm has only 67108864 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm."
+    ]
+  },
+  {
+    "slug": "webdataset-tarerror-unexpected-end-of-archive",
+    "title": "webdataset TarError Unexpected end of archive while reading shard",
+    "category": "Data Integrity",
+    "severity": "medium",
+    "signatures": [
+      "webdataset TarError Unexpected end of archive while reading shard"
+    ]
+  },
+  {
+    "slug": "weights-only-unpickling-error-on-checkpoint-resume",
+    "title": "Weights-only load failed with an UnpicklingError when you resume an older checkpoint",
+    "category": "Checkpointing",
+    "severity": "high",
+    "signatures": [
+      "_pickle.UnpicklingError: Weights only load failed. This file can still be loaded, to do so you have two options",
+      "WeightsUnpickler error: Unsupported global: GLOBAL torch.optim.adamw.AdamW was not an allowed global by default",
+      "Please use `torch.serialization.add_safe_globals([torch.optim.adamw.AdamW])` to allowlist this global"
+    ]
+  },
+  {
+    "slug": "worker-device-lost-presents-as-collective-timeout",
+    "title": "A worker loses its GPU mid-run and the job hangs until a collective times out",
+    "category": "Reliability",
+    "severity": "critical",
+    "signatures": [
+      "RuntimeError: Worker failed with error 'level_zero backend failed with error: 20 (UR_RESULT_ERROR_DEVICE_LOST)'",
+      "NVRM: Xid (PCI:0000:41:00): 79, pid=..., GPU has fallen off the bus.",
+      "[rank2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=8412, OpType=ALLREDUCE) ran for 1800000 milliseconds before timing out"
+    ]
+  },
+  {
+    "slug": "xid-13-pytorch-cuda-oob",
+    "title": "Xid 13: Graphics Engine Exception due to Kernel Out-of-Bounds Access",
+    "category": "Software",
+    "severity": "high",
+    "xid": 13,
+    "signatures": [
+      "dmesg shows NVRM Xid 13 Graphics Engine Exception.",
+      "RuntimeError: CUDA error: an illegal memory access was encountered"
+    ]
+  },
+  {
+    "slug": "xid-31-page-fault-memory-pressure",
+    "title": "Xid 31: Memory Page Fault from Process Resource Exhaustion",
+    "category": "Memory",
+    "severity": "high",
+    "xid": 31,
+    "signatures": [
+      "Syslog/dmesg displays an Xid 31 error indicating a memory page fault."
+    ]
+  },
+  {
+    "slug": "xid-43-pcie-link-training",
+    "title": "Xid 43: PCIe Link Training Failure Under Load",
+    "category": "Hardware",
+    "severity": "high",
+    "xid": 43,
+    "signatures": [
+      "During multi-GPU communication (e.g. NCCL AllReduce), the GPU driver halts with Xid 43.",
+      "Sometimes the GPU completely disappears from the PCIe bus (Xid 79)."
+    ]
+  },
+  {
+    "slug": "xid-43-pcie-power-transient",
+    "title": "Xid 43: Watchdog Timeout due to PSU Transient Spikes",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 43,
+    "signatures": [
+      "The node may completely freeze, or the affected GPU may fall off the bus entirely (leading to Xid 79).",
+      "nvidia-smi hangs or reports the GPU as lost."
+    ]
+  },
+  {
+    "slug": "xid-48-dbe-memory-degradation",
+    "title": "Xid 48: Double Bit ECC Error from VRAM Degradation",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 48,
+    "signatures": [
+      "dmesg logs flooded with Xid 48 Double Bit ECC errors.",
+      "Sometimes accompanied by Xid 64 (Failed page retirement).",
+      "NVRM: Xid (PCI:0000:03:00): 48, Double Bit ECC Error"
+    ]
+  },
+  {
+    "slug": "xid-error-48",
+    "title": "NVIDIA Xid 48. ECC Uncorrectable Memory Error",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 48,
+    "signatures": [
+      "dmesg: Xid 48 (hardware damage) on GPU X",
+      "Loss degrades silently without an explicit crash as Xid 48 corrupts weights during training",
+      "nvidia-smi -q -d ECC shows non-zero uncorrectable error count"
+    ]
+  },
+  {
+    "slug": "xid-error-79",
+    "title": "NVIDIA Xid 79. GPU Has Fallen Off the Bus",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 79,
+    "signatures": [
+      "dmesg: GPU has fallen off the bus on GPU X",
+      "nvidia-smi returns 'No devices found' for the affected GPU",
+      "nvidia-smi shows the GPU as unavailable or unreachable"
+    ]
+  }
+]
