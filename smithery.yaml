@@ -1,0 +1,24 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required: []
+    properties:
+      denpexApiKey:
+        type: string
+        description: Optional Denpex API key (dpx_...). Leave blank for free offline zero-egress diagnosis.
+      denpexOfflineOnly:
+        type: boolean
+        default: false
+        description: Force 100% local offline execution with zero network egress.
+  commandFunction:
+    |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'denpex-mcp@latest'],
+      env: {
+        ...(config.denpexApiKey ? { DENPEX_API_KEY: config.denpexApiKey } : {}),
+        ...(config.denpexOfflineOnly ? { DENPEX_OFFLINE_ONLY: '1' } : {})
+      }
+    })
