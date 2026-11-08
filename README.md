@@ -397,3 +397,26 @@ regeneration.
 
 Data and documentation: CC BY 4.0. Code: MIT. Attribution to Denpex (https://denpex.com) is
 appreciated but the licence terms are what govern.
+
+---
+
+## Official Denpex Ecosystem & Documentation
+
+| Resource | Description | Link |
+| :--- | :--- | :--- |
+| **Denpex Platform** | Deterministic GPU and ML training failure diagnostics | [denpex.com](https://denpex.com) |
+| **Instant Web Console** | Paste a GPU log for immediate root-cause triage | [denpex.com/console](https://denpex.com/console) |
+| **Documentation Hub** | Quickstart guides, architecture, and operational reference | [denpex.com/docs](https://denpex.com/docs) |
+| **Python Agent & CLI** | On-host monitoring, evidence capture, and zero-egress CLI | [denpex.com/docs/agent](https://denpex.com/docs/agent) |
+| **REST API Reference** | Programmatic `/api/diagnose` and preflight endpoints | [denpex.com/docs/api](https://denpex.com/docs/api) |
+| **VS Code Extension** | Offline GPU crash diagnostics in VS Code | [denpex.com/vscode](https://denpex.com/vscode) |
+| **Open VSX Extension** | Extension for Cursor, Windsurf, VSCodium, and Gitpod | [denpex.com/openvsx](https://denpex.com/openvsx) |
+| **Failure Encyclopedia** | 500+ documented CUDA, NCCL, Xid, Slurm, and vLLM failures | [denpex.com/failures](https://denpex.com/failures) |
+| **Free GPU Tools** | VRAM, NCCL, DeepSpeed ZeRO, and Slurm calculators | [denpex.com/tools](https://denpex.com/tools) |
+| **NVIDIA Xid Reference** | Hardware vs software Xid fault routing table | [denpex.com/xid](https://denpex.com/xid) |
+| **NCCL Error Guide** | Collective timeout and first-failed-rank triage | [denpex.com/nccl-errors](https://denpex.com/nccl-errors) |
+| **CUDA Error Guide** | CUDA out-of-memory and device-side assert triage | [denpex.com/cuda-errors](https://denpex.com/cuda-errors) |
+| **vLLM Error Guide** | KV-cache exhaustion and inference worker failure triage | [denpex.com/vllm-errors](https://denpex.com/vllm-errors) |
+| **Slurm GPU Error Guide** | Slurm step cancellation, cgroup, and prolog/epilog triage | [denpex.com/slurm-gpu-errors](https://denpex.com/slurm-gpu-errors) |
+| **Release Changelog** | Platform, agent, SDK, and extension release notes | [denpex.com/changelog](https://denpex.com/changelog) |
+
