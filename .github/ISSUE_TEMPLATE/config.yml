@@ -1,0 +1,17 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Denpex Instant Web Console
+    url: https://denpex.com/console
+    about: Paste a GPU, CUDA, PyTorch, NCCL, Xid, Slurm, or vLLM log for immediate diagnosis.
+  - name: Denpex Official Documentation
+    url: https://denpex.com/docs
+    about: Read quickstart guides, Python agent setup, and REST API documentation.
+  - name: Denpex VS Code & Open VSX Extensions
+    url: https://denpex.com/vscode
+    about: Install the free offline GPU crash diagnostics extension for VS Code, Cursor, and Windsurf.
+  - name: GPU Failure Encyclopedia (500+ Failure Modes)
+    url: https://denpex.com/failures
+    about: Browse verified error signatures, root causes, and fixes for distributed GPU clusters.
+  - name: Free GPU & ML Debugging Calculators
+    url: https://denpex.com/tools
+    about: Use free calculators for LLM VRAM, NCCL tuning, DeepSpeed ZeRO, and Slurm job scripts.
