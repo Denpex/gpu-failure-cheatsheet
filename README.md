@@ -29,7 +29,7 @@ does not fix the run.
 ## Quick triage
 
 ```bash
-# Match a crash log against 471 known failure signatures. No install, no network.
+# Match a crash log against 453 known failure signatures. No install, no network.
 curl -sO https://raw.githubusercontent.com/Denpex/gpu-failure-cheatsheet/main/triage.mjs
 curl -sO https://raw.githubusercontent.com/Denpex/gpu-failure-cheatsheet/main/signatures.json
 node triage.mjs /path/to/training.log
@@ -134,13 +134,13 @@ turning one off fixes your run, you have found where the problem is, not solved 
 | 45 | Preemptive cleanup, due to previous errors | Application bug | No | [reference](https://denpex.com/xid) |
 | 48 | Double Bit ECC Error (DBE) | Hardware | Yes, on repeat | [details](https://denpex.com/failures/xid-48-dbe-memory-degradation) |
 | 61 | Internal micro-controller breakpoint/warning | Driver or firmware | Yes, on repeat | [details](https://denpex.com/failures/nvidia-xid-61-microcontroller-warning) |
-| 62 | Internal micro-controller halt | Driver or firmware | Yes, on repeat | [reference](https://denpex.com/xid) |
+| 62 | Internal micro-controller halt | Driver or firmware | No | [reference](https://denpex.com/xid) |
 | 63 | ECC page retirement or row remapping recording event | Hardware | No | [details](https://denpex.com/failures/hardware-ecc-xid-63-storm) |
 | 64 | ECC page retirement or row remapper recording failure | Hardware | Yes, on repeat | [details](https://denpex.com/failures/hardware-ecc-xid-64-inforom) |
 | 65 | Video processor exception | Ambiguous | No | [reference](https://denpex.com/xid) |
 | 69 | Graphics Engine class error | Application bug | No | [details](https://denpex.com/failures/nvidia-xid-69-graphics-engine-class-error) |
 | 74 | NVLink error | Hardware | Yes, on repeat | [details](https://denpex.com/failures/nvidia-xid-74-nvlink-fatal-error) |
-| 79 | GPU has fallen off the bus | Hardware | Yes, on repeat | [details](https://denpex.com/failures/gpu-fallen-off-bus-xid79) |
+| 79 | GPU has fallen off the bus | Hardware | Yes, on repeat | [details](https://denpex.com/failures/nvidia-xid-79-gpu-fallen-off-the-bus) |
 | 92 | High single-bit ECC error rate | Hardware | No | [reference](https://denpex.com/xid) |
 | 94 | Contained ECC error | Hardware | Yes, on repeat | [reference](https://denpex.com/xid) |
 | 95 | Uncontained ECC error | Hardware | Yes, on repeat | [reference](https://denpex.com/xid) |
@@ -192,9 +192,9 @@ The driver firmware hit an internal error. Not caused by application code.
 
 **Usually:** Application bug. **RMA candidate:** no, not on its own.
 
-A channel was stopped after an error in the work it was executing. The GPU itself is healthy; the context that faulted was terminated.
+A GPU channel stopped processing after an error. This event alone does not establish whether the device is healthy or identify the initiating fault.
 
-**First action.** Read the Xid immediately BEFORE this one, 43 is usually the cleanup that follows another fault, not the fault itself.
+**First action.** Preserve the full event, surrounding kernel messages and application traceback. Compare earlier errors and the installed driver guidance before recovery.
 
 Full entry: https://denpex.com/failures/xid-43-pcie-link-training
 
@@ -228,11 +228,11 @@ Full entry: https://denpex.com/failures/nvidia-xid-61-microcontroller-warning
 
 ### Xid 62: Internal micro-controller halt
 
-**Usually:** Driver or firmware. **RMA candidate:** yes, if it repeats on the same serial.
+**Usually:** Driver or firmware. **RMA candidate:** no, not on its own.
 
-The management processor stopped rather than merely warning. Unrecoverable without a reset, and frequently persistent.
+The internal microcontroller halted. This event alone does not distinguish a driver or firmware issue from defective hardware.
 
-**First action.** Drain and reset. A second Xid 62 on the same serial within 30 days is an RMA with the crash dump attached.
+**First action.** Preserve the bug report, drain GPU clients, and attempt a supported GPU reset. If recovery fails, reboot or power-cycle per the platform procedure. Escalate recurrence or failed diagnostics to NVIDIA/OEM support.
 
 ### Xid 63: ECC page retirement or row remapping recording event
 
@@ -286,11 +286,11 @@ Full entry: https://denpex.com/failures/nvidia-xid-74-nvlink-fatal-error
 
 **Usually:** Hardware. **RMA candidate:** yes, if it repeats on the same serial.
 
-The driver can no longer reach the GPU over PCIe. The device stopped answering, power, thermal, link, or board fault. A warm reboot will not bring it back.
+The driver lost PCIe communication with the GPU. The endpoint stopped responding due to a PCIe link degradation, power drop, thermal trip, or board fault. Recovery depends entirely on platform architecture and evidence collection.
 
-**First action.** Capture dmesg, BMC event log and nvidia-bug-report.sh BEFORE power-cycling, the evidence does not survive. Then full chassis power cycle.
+**First action.** Capture host kernel logs, device identity, and an NVIDIA bug report before attempting any reboot. Coordinate recovery with your cloud provider or infrastructure team.
 
-Full entry: https://denpex.com/failures/gpu-fallen-off-bus-xid79
+Full entry: https://denpex.com/failures/nvidia-xid-79-gpu-fallen-off-the-bus
 
 ### Xid 92: High single-bit ECC error rate
 
@@ -375,7 +375,7 @@ https://denpex.com/solutions/best-tools-gpu-cluster-debugging
 
 ## Full encyclopedia
 
-471 failure modes with a verbatim error signature, a root cause, a fix
+453 failure modes with a verbatim error signature, a root cause, a fix
 and citations to upstream vendor documentation or issue trackers:
 
 https://denpex.com/failures
@@ -397,26 +397,3 @@ regeneration.
 
 Data and documentation: CC BY 4.0. Code: MIT. Attribution to Denpex (https://denpex.com) is
 appreciated but the licence terms are what govern.
-
----
-
-## Official Denpex Ecosystem & Documentation
-
-| Resource | Description | Link |
-| :--- | :--- | :--- |
-| **Denpex Platform** | Deterministic GPU and ML training failure diagnostics | [denpex.com](https://denpex.com) |
-| **Instant Web Console** | Paste a GPU log for immediate root-cause triage | [denpex.com/console](https://denpex.com/console) |
-| **Documentation Hub** | Quickstart guides, architecture, and operational reference | [denpex.com/docs](https://denpex.com/docs) |
-| **Python Agent & CLI** | On-host monitoring, evidence capture, and zero-egress CLI | [denpex.com/docs/agent](https://denpex.com/docs/agent) |
-| **REST API Reference** | Programmatic `/api/diagnose` and preflight endpoints | [denpex.com/docs/api](https://denpex.com/docs/api) |
-| **VS Code Extension** | Offline GPU crash diagnostics in VS Code | [denpex.com/vscode](https://denpex.com/vscode) |
-| **Open VSX Extension** | Extension for Cursor, Windsurf, VSCodium, and Gitpod | [denpex.com/openvsx](https://denpex.com/openvsx) |
-| **Failure Encyclopedia** | 500+ documented CUDA, NCCL, Xid, Slurm, and vLLM failures | [denpex.com/failures](https://denpex.com/failures) |
-| **Free GPU Tools** | VRAM, NCCL, DeepSpeed ZeRO, and Slurm calculators | [denpex.com/tools](https://denpex.com/tools) |
-| **NVIDIA Xid Reference** | Hardware vs software Xid fault routing table | [denpex.com/xid](https://denpex.com/xid) |
-| **NCCL Error Guide** | Collective timeout and first-failed-rank triage | [denpex.com/nccl-errors](https://denpex.com/nccl-errors) |
-| **CUDA Error Guide** | CUDA out-of-memory and device-side assert triage | [denpex.com/cuda-errors](https://denpex.com/cuda-errors) |
-| **vLLM Error Guide** | KV-cache exhaustion and inference worker failure triage | [denpex.com/vllm-errors](https://denpex.com/vllm-errors) |
-| **Slurm GPU Error Guide** | Slurm step cancellation, cgroup, and prolog/epilog triage | [denpex.com/slurm-gpu-errors](https://denpex.com/slurm-gpu-errors) |
-| **Release Changelog** | Platform, agent, SDK, and extension release notes | [denpex.com/changelog](https://denpex.com/changelog) |
-

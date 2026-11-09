@@ -248,15 +248,6 @@
     ]
   },
   {
-    "slug": "checkpoint-partial-save-1",
-    "title": "Partial Checkpoint Save",
-    "category": "Data Integrity",
-    "severity": "critical",
-    "signatures": [
-      "torch.load fails halfway through"
-    ]
-  },
-  {
     "slug": "checkpoint-torn-write",
     "title": "Checkpoint Torn Write",
     "category": "Data Integrity",
@@ -595,17 +586,6 @@
     ]
   },
   {
-    "slug": "dataloader-failure-1",
-    "title": "Dataloader Worker Failure",
-    "category": "Data Pipeline",
-    "severity": "high",
-    "signatures": [
-      "RuntimeError: DataLoader worker (pid X) is killed by signal: Terminated",
-      "CUDA error: an illegal memory access was encountered. Caused by corrupted batch data from a crashed worker",
-      "dmesg shows OOM killer or segfault originating from Python worker processes"
-    ]
-  },
-  {
     "slug": "dataloader-worker-killed-bus-error-shm",
     "title": "DataLoader worker is killed by signal: Bus error shared memory exhausted",
     "category": "Data Pipeline",
@@ -643,15 +623,6 @@
     ]
   },
   {
-    "slug": "ddp-port-conflict-1",
-    "title": "DDP Port Conflict",
-    "category": "Distributed Training",
-    "severity": "high",
-    "signatures": [
-      "RuntimeError: Distributed connection setup failed"
-    ]
-  },
-  {
     "slug": "ddp-reducer-expect-autograd-hooks-assert",
     "title": "DistributedDataParallel raises an internal reducer assertion when a backward pass arrives unexpectedly",
     "category": "Distributed Training",
@@ -669,16 +640,6 @@
     "signatures": [
       "RuntimeError: Distributed package doesn't have NCCL built",
       "torch.distributed.init_process_group fails"
-    ]
-  },
-  {
-    "slug": "ddp-setup-error-1",
-    "title": "DDP Setup Error",
-    "category": "Distributed Training",
-    "severity": "critical",
-    "signatures": [
-      "RuntimeError: Default process group has not been initialized",
-      "torch.distributed.init_process_group failed"
     ]
   },
   {
@@ -814,15 +775,6 @@
   },
   {
     "slug": "deepspeed-init-failed",
-    "title": "DeepSpeed Initialization Failed",
-    "category": "Distributed Training",
-    "severity": "critical",
-    "signatures": [
-      "RuntimeError: DeepSpeed engine initialization failed"
-    ]
-  },
-  {
-    "slug": "deepspeed-init-failed-1",
     "title": "DeepSpeed Initialization Failed",
     "category": "Distributed Training",
     "severity": "critical",
@@ -1203,27 +1155,11 @@
     ]
   },
   {
-    "slug": "dpx-fail-0459-xid-43",
-    "title": "Xid 43 (GPU Stopped Processing)",
-    "category": "CUDA",
-    "severity": "high",
-    "xid": 43,
-    "signatures": []
-  },
-  {
     "slug": "dpx-fail-0460-xid-61",
     "title": "Xid 61 (Internal Micro-Controller Breakpoint)",
     "category": "Hardware",
     "severity": "medium",
     "xid": 61,
-    "signatures": []
-  },
-  {
-    "slug": "dpx-fail-0461-xid-62",
-    "title": "Xid 62 (Internal Micro-Controller Halt)",
-    "category": "Hardware",
-    "severity": "medium",
-    "xid": 62,
     "signatures": []
   },
   {
@@ -1352,15 +1288,6 @@
     ]
   },
   {
-    "slug": "fsdp-all-gather-timeout-1",
-    "title": "FSDP All-Gather Timeout",
-    "category": "Distributed Training",
-    "severity": "critical",
-    "signatures": [
-      "RuntimeError: AllGather timed out waiting for work on rank X"
-    ]
-  },
-  {
     "slug": "fsdp-auto-wrap-policy-none-with-activation-checkpointing",
     "title": "FSDP preparation fails because activation checkpointing calls a wrapping policy that was never set",
     "category": "Distributed Training",
@@ -1450,6 +1377,18 @@
     ]
   },
   {
+    "slug": "gb200-nvl72-uptime-nvlink-hang-xid-150-154",
+    "title": "GB200 NVL72 driver hang with Xid 150 and 154 after long uptime is a firmware bug, not a dead GPU",
+    "category": "Reliability",
+    "severity": "high",
+    "xid": 150,
+    "signatures": [
+      "NVRM: Xid (PCI:0009:01:00): 150, GPU driver hang in NVLink task scheduling",
+      "NVRM: Xid (PCI:0009:01:00): 154, GPU recovery action changed",
+      "uptime: 63 days,  4:12,  0 users,  load average: 41.88, 40.92, 40.11"
+    ]
+  },
+  {
     "slug": "gcc-version-mismatch",
     "title": "GCC Version Mismatch",
     "category": "Environment",
@@ -1532,18 +1471,6 @@
       "dmesg: nvidia-nvme: Corrected ECC errors detected on GPU X",
       "Memory errors detected in dmesg",
       "nvidia-smi -q -d ECC shows non-zero volatile counts"
-    ]
-  },
-  {
-    "slug": "gpu-fallen-off-bus-xid79",
-    "title": "GPU Fallen Off the Bus (Xid 79)",
-    "category": "Hardware",
-    "severity": "critical",
-    "xid": 79,
-    "signatures": [
-      "Xid 79: GPU has fallen off the bus",
-      "Xid 79 in the kernel log",
-      "nvidia-smi: GPU is lost / not listed"
     ]
   },
   {
@@ -1682,35 +1609,12 @@
     ]
   },
   {
-    "slug": "gsp-rpc-timeout-xid119",
-    "title": "GSP RPC Timeout (Xid 119)",
-    "category": "Hardware",
-    "severity": "high",
-    "xid": 119,
-    "signatures": [
-      "Xid 119 in dmesg (GSP RPC timeout)",
-      "Xid 119 appears in the kernel log",
-      "nvidia-smi hangs or omits the GPU"
-    ]
-  },
-  {
     "slug": "habana-gaudi-synapseai-hcl-timeout-allreduce",
     "title": "habana synapseai HCLError HCL_TIMEOUT waiting for AllReduce on Gaudi OAM module",
     "category": "Hardware",
     "severity": "high",
     "signatures": [
       "habana synapseai HCLError HCL_TIMEOUT waiting for AllReduce on Gaudi OAM module"
-    ]
-  },
-  {
-    "slug": "hardware-ecc-xid-48-uncorrectable",
-    "title": "Xid 48 Double-Bit ECC Error in HBM",
-    "category": "Hardware",
-    "severity": "critical",
-    "xid": 48,
-    "signatures": [
-      "RuntimeError: CUDA error: uncorrectable ECC error encountered",
-      "nvidia-smi shows the GPU in an error state or processes fail to attach to it."
     ]
   },
   {
@@ -2225,15 +2129,6 @@
       "AttributeError: 'Mxfp4GptOssExperts' object has no attribute 'down_proj_scales'. Did you mean: 'down_proj_bias'?",
       "File \".../transformers/modeling_utils.py\", in _load_state_dict_into_meta_model",
       "value = getattr(module, param_type)"
-    ]
-  },
-  {
-    "slug": "nan-loss-1",
-    "title": "NaN Loss During Training",
-    "category": "Training Stability",
-    "severity": "high",
-    "signatures": [
-      "torch.autograd detects NaN"
     ]
   },
   {
@@ -2934,12 +2829,12 @@
   },
   {
     "slug": "nvidia-xid-62-internal-microcode-fault",
-    "title": "NVRM: Xid 62, Internal Microcode Error",
+    "title": "Xid 62: Internal microcontroller halt",
     "category": "Hardware",
-    "severity": "critical",
+    "severity": "high",
     "xid": 62,
     "signatures": [
-      "NVRM: Xid 62, Internal Microcode Error"
+      "NVRM: Xid (PCI:0000:41:00.0): 62, pid=14092, 0000 00000000 00000000"
     ]
   },
   {
@@ -2964,38 +2859,22 @@
     ]
   },
   {
-    "slug": "nvidia-xid-79-gpu-fallen-off-bus",
-    "title": "NVIDIA Xid 79 - GPU Fallen off the Bus",
-    "category": "Hardware",
-    "severity": "critical",
-    "xid": 79,
-    "signatures": [
-      "RuntimeError: CUDA error: unknown error",
-      "GPU completely disappears from `nvidia-smi` output",
-      "No devices were found (nvidia-smi)"
-    ]
-  },
-  {
     "slug": "nvidia-xid-79-gpu-fallen-off-the-bus",
     "title": "Xid 79: GPU has fallen off the bus",
     "category": "Hardware",
     "severity": "critical",
     "xid": 79,
     "signatures": [
-      "[Sat Aug 22 03:14:52 2026] NVRM: Xid (PCI:0000:8a:00): 79, pid='<unknown>', name=<unknown>, GPU has fallen off the bus.",
-      "[Sat Aug 22 03:14:52 2026] NVRM: GPU 0000:8a:00.0: GPU has fallen off the bus.",
-      "[Sat Aug 22 03:14:52 2026] NVRM: A GPU crash dump has been created. If possible, please run nvidia-bug-report.sh as root to collect this data."
+      "Xid 79: GPU has fallen off the bus"
     ]
   },
   {
     "slug": "nvidia-xid-92-uncorrectable-ecc-error",
-    "title": "NVRM: Xid 92, High uncorrectable double-bit ECC error threshold exceeded",
+    "title": "Xid 92: High single-bit ECC error rate",
     "category": "Hardware",
-    "severity": "critical",
+    "severity": "medium",
     "xid": 92,
-    "signatures": [
-      "NVRM: Xid 92, High uncorrectable double-bit ECC error threshold exceeded"
-    ]
+    "signatures": []
   },
   {
     "slug": "nvidia-xid-94-contained-ecc-error",
@@ -3096,6 +2975,17 @@
     ]
   },
   {
+    "slug": "nvswitch-sxid-fatal-fabric-manager",
+    "title": "NVSwitch SXid errors: what aborts your CUDA jobs and what is only informational",
+    "category": "Hardware",
+    "severity": "critical",
+    "signatures": [
+      "nvidia-nvswitch3: SXid (PCI:0000:05:00.0): 12028, Non-fatal, Link 32 egress non-posted PRIV error (First)",
+      "nvidia-nvswitch0: SXid (PCI:0000:00:00.0): 20034, Fatal, Link 30 LTSSM Fault Up",
+      "nv-fabricmanager: detected NVSwitch fatal error, aborting all running CUDA jobs"
+    ]
+  },
+  {
     "slug": "ofi-memlock-exhaustion",
     "title": "OFI Memlock Exhaustion. RDMA Memory Registration Failure",
     "category": "Communication",
@@ -3165,16 +3055,6 @@
     "category": "Data Integrity",
     "severity": "high",
     "signatures": [
-      "KeyError: missing optimizer state for parameters"
-    ]
-  },
-  {
-    "slug": "optimizer-state-dict-mismatch-1",
-    "title": "Optimizer State Dict Mismatch",
-    "category": "Data Integrity",
-    "severity": "high",
-    "signatures": [
-      "RuntimeError: Error(s) in loading optimizer state_dict: Unexpected key(s)",
       "KeyError: missing optimizer state for parameters"
     ]
   },
@@ -3262,16 +3142,6 @@
     "severity": "high",
     "signatures": [
       "RuntimeError: can't pickle multiprocessing objects"
-    ]
-  },
-  {
-    "slug": "python-multiprocessing-fork-issue",
-    "title": "Python Multiprocessing Fork Issue",
-    "category": "Environment",
-    "severity": "medium",
-    "signatures": [
-      "RuntimeError: Cannot re-initialize CUDA in forked subprocess",
-      "CUDA error in forked worker"
     ]
   },
   {
@@ -3656,16 +3526,6 @@
     "severity": "medium",
     "signatures": [
       "SafetensorError: Error while deserializing header: HeaderTooLarge"
-    ]
-  },
-  {
-    "slug": "safetensors-load-error-1",
-    "title": "Safetensors Load Error",
-    "category": "Data Integrity",
-    "severity": "high",
-    "signatures": [
-      "OSError: file too short: model.safetensors",
-      "RuntimeError: invalid header in safetensors file"
     ]
   },
   {
@@ -4168,12 +4028,11 @@
   },
   {
     "slug": "trtllm-fp8-unsupported-compute-capability",
-    "title": "TensorRT-LLM rejects FP8 quantization on a GPU below compute capability 8.9",
+    "title": "TensorRT-LLM FP8 support depends on GPU architecture, backend and model",
     "category": "Environment",
     "severity": "high",
     "signatures": [
-      "[TRT-LLM] [E] FP8 quantization is not supported on this GPU architecture (compute capability 8.0). Rebuild the engine with a supported quantization mode.",
-      "[TRT-LLM] [I] Detected device 0: NVIDIA A100-SXM4-80GB, compute capability 8.0"
+      "ERROR: FP8 quantization is not supported on this GPU architecture"
     ]
   },
   {
@@ -4452,6 +4311,18 @@
     ]
   },
   {
+    "slug": "xid-149-netir-link-down-blackwell",
+    "title": "Xid 149 NETIR_LINK_DOWN on Blackwell: the NVLink fault that Xid 74 knowledge misses",
+    "category": "Hardware",
+    "severity": "critical",
+    "xid": 149,
+    "signatures": [
+      "NVRM: Xid (PCI:0018:01:00): 149, NETIR_LINK_EVT Fatal XC0 i0 Link 08 (0x004505c6 0x00000000 0x00000000 0x00000000)",
+      "NVRM: Xid (PCI:0018:01:00): 149, NETIR_LINK_DOWN Fatal",
+      "NVRM: Xid (PCI:0018:01:00): 154, GPU recovery action changed"
+    ]
+  },
+  {
     "slug": "xid-31-page-fault-memory-pressure",
     "title": "Xid 31: Memory Page Fault from Process Resource Exhaustion",
     "category": "Memory",
@@ -4459,28 +4330,6 @@
     "xid": 31,
     "signatures": [
       "Syslog/dmesg displays an Xid 31 error indicating a memory page fault."
-    ]
-  },
-  {
-    "slug": "xid-43-pcie-link-training",
-    "title": "Xid 43: PCIe Link Training Failure Under Load",
-    "category": "Hardware",
-    "severity": "high",
-    "xid": 43,
-    "signatures": [
-      "During multi-GPU communication (e.g. NCCL AllReduce), the GPU driver halts with Xid 43.",
-      "Sometimes the GPU completely disappears from the PCIe bus (Xid 79)."
-    ]
-  },
-  {
-    "slug": "xid-43-pcie-power-transient",
-    "title": "Xid 43: Watchdog Timeout due to PSU Transient Spikes",
-    "category": "Hardware",
-    "severity": "critical",
-    "xid": 43,
-    "signatures": [
-      "The node may completely freeze, or the affected GPU may fall off the bus entirely (leading to Xid 79).",
-      "nvidia-smi hangs or reports the GPU as lost."
     ]
   },
   {
@@ -4493,40 +4342,6 @@
       "dmesg logs flooded with Xid 48 Double Bit ECC errors.",
       "Sometimes accompanied by Xid 64 (Failed page retirement).",
       "NVRM: Xid (PCI:0000:03:00): 48, Double Bit ECC Error"
-    ]
-  },
-  {
-    "slug": "xid-error-48",
-    "title": "NVIDIA Xid 48. ECC Uncorrectable Memory Error",
-    "category": "Hardware",
-    "severity": "critical",
-    "xid": 48,
-    "signatures": [
-      "dmesg: Xid 48 (hardware damage) on GPU X",
-      "Loss degrades silently without an explicit crash as Xid 48 corrupts weights during training",
-      "nvidia-smi -q -d ECC shows non-zero uncorrectable error count"
-    ]
-  },
-  {
-    "slug": "xid-error-79",
-    "title": "NVIDIA Xid 79. GPU Has Fallen Off the Bus",
-    "category": "Hardware",
-    "severity": "critical",
-    "xid": 79,
-    "signatures": [
-      "dmesg: GPU has fallen off the bus on GPU X",
-      "nvidia-smi returns 'No devices found' for the affected GPU",
-      "nvidia-smi shows the GPU as unavailable or unreachable"
-    ]
-  },
-  {
-    "slug": "zombie-process-1",
-    "title": "Zombie GPU Process / Orphaned Job",
-    "category": "Reliability",
-    "severity": "critical",
-    "signatures": [
-      "nvidia-smi shows CUDA processes that won't die",
-      "nvidia-smi shows GPU memory used but process is invisible"
     ]
   }
 ]
