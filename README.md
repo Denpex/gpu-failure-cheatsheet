@@ -356,6 +356,44 @@ The GPU failed to initialize. It will not be usable until reset, and often not a
 
 **First action.** Full power cycle, not a warm reboot. Then `nvidia-smi -L` to confirm enumeration. If it recurs on the same slot, test whether the fault follows the card.
 
+## LLM VRAM and GQA/MLA KV-cache quick reference
+
+Naive dense VRAM calculators overestimate KV cache memory by 4x to 16x on modern models because they multiply by full query heads instead of Grouped-Query Attention (`kv_heads`) or DeepSeek Multi-head Latent Attention (`mla_kv_dim = 576`):
+
+- **GQA KV cache (GiB):** `2 * layers * kv_heads * head_dim * context_tokens * batch * bytes_per_elem / 1024^3`
+- **DeepSeek MLA KV cache (GiB):** `layers * 576 * context_tokens * batch * bytes_per_elem / 1024^3`
+
+| Model | Attention | Weights (BF16/FP16) | Weights (FP8) | Weights (INT4) | 32k FP16 KV Cache (batch=1) | Interactive |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| Llama 3.3 70B | GQA (8/64) | 140.0 GB | 70.0 GB | 35.0 GB | 10.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/llama-3-3-70b) |
+| DeepSeek-R1 671B | MLA (576) | 1342.0 GB | 671.0 GB | 335.5 GB | 2.14 GiB | [calculator](https://denpex.com/tools/vram-calculator/deepseek-r1-671b) |
+| DeepSeek V3 671B | MLA (576) | 1342.0 GB | 671.0 GB | 335.5 GB | 2.14 GiB | [calculator](https://denpex.com/tools/vram-calculator/deepseek-v3-671b) |
+| DeepSeek R1 Distill Llama 70B | GQA (8/64) | 140.0 GB | 70.0 GB | 35.0 GB | 10.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/deepseek-r1-distill-llama-70b) |
+| DeepSeek R1 Distill Qwen 32B | GQA (8/40) | 65.0 GB | 32.5 GB | 16.3 GB | 8.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/deepseek-r1-distill-qwen-32b) |
+| DeepSeek R1 Distill Qwen 14B | GQA (8/40) | 29.4 GB | 14.7 GB | 7.3 GB | 6.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/deepseek-r1-distill-qwen-14b) |
+| Qwen 3 235B A22B | GQA (4/64) | 470.0 GB | 235.0 GB | 117.5 GB | 5.88 GiB | [calculator](https://denpex.com/tools/vram-calculator/qwen-3-235b-a22b) |
+| Qwen 3 32B | GQA (8/64) | 64.0 GB | 32.0 GB | 16.0 GB | 8.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/qwen-3-32b) |
+| Qwen 3 30B A3B | GQA (4/32) | 61.0 GB | 30.5 GB | 15.3 GB | 3.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/qwen-3-30b-a3b) |
+| QwQ 32B | GQA (8/40) | 65.0 GB | 32.5 GB | 16.3 GB | 8.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/qwq-32b) |
+| Qwen 2.5 Coder 32B | GQA (8/40) | 65.0 GB | 32.5 GB | 16.3 GB | 8.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/qwen-2-5-coder-32b) |
+| Llama 4 Maverick | GQA (8/40) | 800.0 GB | 400.0 GB | 200.0 GB | 6.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/llama-4-maverick) |
+| Llama 4 Scout | GQA (8/40) | 218.0 GB | 109.0 GB | 54.5 GB | 6.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/llama-4-scout) |
+| Gemma 3 27B | GQA (16/32) | 54.0 GB | 27.0 GB | 13.5 GB | 15.50 GiB | [calculator](https://denpex.com/tools/vram-calculator/gemma-3-27b) |
+| Gemma 4 31B | MHA (20) | 62.0 GB | 31.0 GB | 15.5 GB | 37.50 GiB | [calculator](https://denpex.com/tools/vram-calculator/gemma-4-31b) |
+| Mistral Small 3.1 24B | GQA (8/32) | 48.0 GB | 24.0 GB | 12.0 GB | 5.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/mistral-small-3-1-24b) |
+| Devstral Small 24B | GQA (8/32) | 48.0 GB | 24.0 GB | 12.0 GB | 5.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/devstral-small-24b) |
+| Phi-4 14B | GQA (10/40) | 29.4 GB | 14.7 GB | 7.3 GB | 6.25 GiB | [calculator](https://denpex.com/tools/vram-calculator/phi-4-14b) |
+| Llama 3.2 90B Vision | GQA (8/64) | 180.0 GB | 90.0 GB | 45.0 GB | 10.00 GiB | [calculator](https://denpex.com/tools/vram-calculator/llama-3-2-90b-vision) |
+| Llama 3.1 405B | GQA (8/128) | 810.0 GB | 405.0 GB | 202.5 GB | 15.75 GiB | [calculator](https://denpex.com/tools/vram-calculator/llama-3-1-405b) |
+
+Full 63-model interactive sizing calculator (Tensor Parallelism, FP8/INT4, QLoRA, GRPO/RL, 9 languages):
+
+- English (63 models): https://denpex.com/tools/vram-calculator
+- Multilingual calculators: [Portugues](https://denpex.com/pt/vram-calculator), [Deutsch](https://denpex.com/de/vram-calculator), [Francais](https://denpex.com/fr/vram-calculator), [Espanol](https://denpex.com/es/vram-calculator), [Japanese](https://denpex.com/ja/vram-calculator), [Korean](https://denpex.com/ko/vram-calculator), [Simplified Chinese](https://denpex.com/zh/vram-calculator), [Traditional Chinese](https://denpex.com/zh-tw/vram-calculator)
+- GRPO / RLHF training VRAM calculator (verl / vLLM): https://denpex.com/tools/grpo-rl-vram-calculator
+- Zero-upload browser crash log analyzer: https://denpex.com/tools/gpu-log-analyzer
+- Read-only cluster preflight check: `curl -sSL https://denpex.com/preflight.sh | sh`
+
 ## Where each tool stops
 
 Debugging a GPU cluster takes several layers, and knowing which one answers your
