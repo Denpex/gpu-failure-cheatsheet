@@ -4190,15 +4190,6 @@
     ]
   },
   {
-    "slug": "vllm-no-available-memory-for-cache-blocks",
-    "title": "ValueError: No available memory for the cache blocks gpu_memory_utilization",
-    "category": "Infrastructure",
-    "severity": "medium",
-    "signatures": [
-      "ValueError: No available memory for the cache blocks gpu_memory_utilization"
-    ]
-  },
-  {
     "slug": "vllm-nvfp4-emulation-lookup-table-device-mismatch",
     "title": "vLLM crashes initialising an NVFP4 model because the emulation lookup table stays on the CPU",
     "category": "Environment",

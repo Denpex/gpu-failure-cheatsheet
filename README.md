@@ -29,7 +29,7 @@ does not fix the run.
 ## Quick triage
 
 ```bash
-# Match a crash log against 453 known failure signatures. No install, no network.
+# Match a crash log against 452 known failure signatures. No install, no network.
 curl -sO https://raw.githubusercontent.com/Denpex/gpu-failure-cheatsheet/main/triage.mjs
 curl -sO https://raw.githubusercontent.com/Denpex/gpu-failure-cheatsheet/main/signatures.json
 node triage.mjs /path/to/training.log
@@ -130,7 +130,7 @@ turning one off fixes your run, you have found where the problem is, not solved 
 | 31 | GPU memory page fault (MMU fault) | Application bug | No | [details](https://denpex.com/failures/xid-31-page-fault-memory-pressure) |
 | 32 | Invalid or corrupted push buffer stream | Ambiguous | No | [reference](https://denpex.com/xid) |
 | 38 | Driver firmware error | Driver or firmware | No | [reference](https://denpex.com/xid) |
-| 43 | GPU stopped processing | Application bug | No | [details](https://denpex.com/failures/xid-43-pcie-link-training) |
+| 43 | GPU stopped processing | Application bug | No | [details](https://denpex.com/failures/nvidia-xid-43-stopped-processing) |
 | 45 | Preemptive cleanup, due to previous errors | Application bug | No | [reference](https://denpex.com/xid) |
 | 48 | Double Bit ECC Error (DBE) | Hardware | Yes, on repeat | [details](https://denpex.com/failures/xid-48-dbe-memory-degradation) |
 | 61 | Internal micro-controller breakpoint/warning | Driver or firmware | Yes, on repeat | [details](https://denpex.com/failures/nvidia-xid-61-microcontroller-warning) |
@@ -196,7 +196,7 @@ A GPU channel stopped processing after an error. This event alone does not estab
 
 **First action.** Preserve the full event, surrounding kernel messages and application traceback. Compare earlier errors and the installed driver guidance before recovery.
 
-Full entry: https://denpex.com/failures/xid-43-pcie-link-training
+Full entry: https://denpex.com/failures/nvidia-xid-43-stopped-processing
 
 ### Xid 45: Preemptive cleanup, due to previous errors
 
@@ -375,7 +375,7 @@ https://denpex.com/solutions/best-tools-gpu-cluster-debugging
 
 ## Full encyclopedia
 
-453 failure modes with a verbatim error signature, a root cause, a fix
+452 failure modes with a verbatim error signature, a root cause, a fix
 and citations to upstream vendor documentation or issue trackers:
 
 https://denpex.com/failures
